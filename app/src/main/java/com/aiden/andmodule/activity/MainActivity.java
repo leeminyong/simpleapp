@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             cityNames.add("TabHost");
             cityNames.add("ConsLayout");
             cityNames.add("Databinding");
-            cityNames.add("");
+            cityNames.add("Listview");
             cityNames.add("");
             cityNames.add("");
             cityNames.add("");
@@ -113,9 +113,12 @@ public class MainActivity extends AppCompatActivity {
                             break;
 
                         case 9:
-                            intent = new Intent(MainActivity.this, NinePatchActivity.class);
+                            intent = new Intent(MainActivity.this, ListViewActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             startActivity(intent);
+                            break;
+                        case 10:
+
                             break;
                         //DialogActivity
                         //ToogleActivity
