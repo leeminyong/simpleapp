@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/rg_btn1"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:button="@null"
+            android:drawableRight="@drawable/selector_item"
+            android:paddingLeft="23dp"
+            android:paddingRight="23dp"
+            android:text="번호순 정렬"
+            android:textSize="19sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#eeeeee"/>
+
+        <RadioButton
+            android:id="@+id/rg_btn2"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:button="@null"
+            android:drawableRight="@drawable/selector_item"
+            android:paddingLeft="23dp"
+            android:paddingRight="23dp"
+            android:text="abc순 정렬"
+            android:textSize="19sp" />
+
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#ff960d"
+        android:onClick="onConfirm"
+        android:textSize="19sp"
+        android:textColor="@color/color_default_text_white"
+        android:text="확인" />
+</LinearLayout>

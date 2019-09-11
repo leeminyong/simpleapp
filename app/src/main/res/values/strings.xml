@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndModule</string>
+    <string name="action_option_1">편집</string>
+    <string name="action_option_3">닫기</string>
+</resources>
