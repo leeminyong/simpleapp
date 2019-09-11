@@ -3,6 +3,7 @@ package com.aiden.andmodule.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -66,6 +67,7 @@ public class ListViewActivity extends AppCompatActivity {
                 String titleStr = item.getTitle() ;
                 String descStr = item.getDesc() ;
                 Drawable iconDrawable = item.getIcon() ;
+                v.setBackgroundColor(Color.RED);
 
                 // TODO : use item data.
             }
