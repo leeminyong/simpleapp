@@ -10,11 +10,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.aiden.andmodule.LogUtil;
 import com.aiden.andmodule.R;
 import com.aiden.andmodule.adapter.ListViewAdapter;
 import com.aiden.andmodule.model.ListViewItem;
 
 public class ListViewActivity extends AppCompatActivity {
+
+    String TAG = "ListViewActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +70,10 @@ public class ListViewActivity extends AppCompatActivity {
                 String titleStr = item.getTitle() ;
                 String descStr = item.getDesc() ;
                 Drawable iconDrawable = item.getIcon() ;
-                v.setBackgroundColor(Color.RED);
+                adapter.setSelect(position);
+                adapter.notifyDataSetChanged();
+                //v.setBackgroundColor(Color.RED);
+                LogUtil.e(TAG,"pos--->"+position);
 
                 // TODO : use item data.
             }

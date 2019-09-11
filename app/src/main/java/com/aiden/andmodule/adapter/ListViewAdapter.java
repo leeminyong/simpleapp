@@ -1,6 +1,7 @@
 package com.aiden.andmodule.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,12 +10,15 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.aiden.andmodule.LogUtil;
 import com.aiden.andmodule.R;
 import com.aiden.andmodule.model.ListViewItem;
 
 import java.util.ArrayList;
 
 public class ListViewAdapter extends BaseAdapter {
+
+    String TAG = "ListViewAdapter";
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
     private ArrayList<ListViewItem> listViewItemList = new ArrayList<ListViewItem>() ;
     public ListViewAdapter() {   }
@@ -46,9 +50,19 @@ public class ListViewAdapter extends BaseAdapter {
         titleTextView.setText(listViewItem.getTitle());
         descTextView.setText(listViewItem.getDesc());
 
+        if(mSelectedPostion == position){
+            //LogUtil.e(TAG,"pos--->"+position);
+            convertView.setBackgroundColor(Color.YELLOW);
+        }else
+            convertView.setBackgroundColor(Color.WHITE);
         return convertView;
     }
 
+    private int mSelectedPostion = -1;
+    public void setSelect(int position){
+        mSelectedPostion = position;
+
+    }
 
     @Override
     public long getItemId(int position) {
