@@ -18,8 +18,10 @@ import com.aiden.andmodule.R;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 /**
- * Created by charlie on 2017. 11. 22
+ * Created by charlie on 2019.09.15
+
  */
+
 
 public class BottomSheetDialog extends BottomSheetDialogFragment implements View.OnClickListener{
 
