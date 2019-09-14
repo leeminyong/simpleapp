@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             cityNames.add("ConsLayout");
             cityNames.add("Databinding");
             cityNames.add("Listview");
-            cityNames.add("");
+            cityNames.add("CustomListview");
             cityNames.add("");
             cityNames.add("");
             cityNames.add("");
@@ -118,6 +118,10 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                             break;
                         case 10:
+                            //Listview
+                            intent = new Intent(MainActivity.this, CustomListviewActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent);
 
                             break;
                         //DialogActivity
