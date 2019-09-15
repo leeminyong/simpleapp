@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             cityNames.add("Databinding");
             cityNames.add("Listview");
             cityNames.add("CustomListview");
-            cityNames.add("");
+            cityNames.add("MultiDelListView");
             cityNames.add("");
             cityNames.add("");
             cityNames.add("");
@@ -122,8 +122,14 @@ public class MainActivity extends AppCompatActivity {
                             intent = new Intent(MainActivity.this, CustomListviewActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             startActivity(intent);
-
                             break;
+                        case 11:
+                            //Listview
+                            intent = new Intent(MainActivity.this, MultiDelListActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent);
+                            break;
+                         //MultiDelListActivity
                         //DialogActivity
                         //ToogleActivity
                         //SharedDataActivity
