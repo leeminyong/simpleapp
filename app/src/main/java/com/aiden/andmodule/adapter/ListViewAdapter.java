@@ -32,10 +32,10 @@ public class ListViewAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         final int pos = position;
         final Context context = parent.getContext();
-        // "listview_item" Layout을 inflate하여 convertView 참조 획득.
+        // "lv_item" Layout을 inflate하여 convertView 참조 획득.
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.listview_item, parent, false);
+            convertView = inflater.inflate(R.layout.lv_item, parent, false);
         }
 
         ImageView iconImageView = convertView.findViewById(R.id.imageView1) ;
