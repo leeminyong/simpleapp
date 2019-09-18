@@ -9,11 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ListViewActivity"></activity>
+        <activity android:name=".activity.SimpleLvActivity"></activity>
+        <activity android:name=".activity.MultiSimpleLvActivity" />
+        <activity android:name=".activity.ListViewActivity" />
         <activity android:name=".activity.NinePatchActivity" />
         <activity android:name=".activity.DataBindingActivity" />
         <activity android:name=".activity.DialogActivity" />
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -76,8 +78,6 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
-
-
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

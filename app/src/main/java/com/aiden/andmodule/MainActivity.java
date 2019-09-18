@@ -1,4 +1,4 @@
-package com.aiden.andmodule.activity;
+package com.aiden.andmodule;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,20 @@ import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.aiden.andmodule.R;
+import com.aiden.andmodule.activity.BottomSheetActivity;
+import com.aiden.andmodule.activity.ConstLayout;
+import com.aiden.andmodule.activity.CustomListviewActivity;
+import com.aiden.andmodule.activity.DBRecyclerActivity;
+import com.aiden.andmodule.activity.DataBindingActivity;
+import com.aiden.andmodule.activity.DialogActivity;
+import com.aiden.andmodule.activity.GroupBtnActivity;
+import com.aiden.andmodule.activity.ListViewActivity;
+import com.aiden.andmodule.activity.MultiDelListActivity;
+import com.aiden.andmodule.activity.MultiSimpleLvActivity;
+import com.aiden.andmodule.activity.SharedDataActivity;
+import com.aiden.andmodule.activity.SimpleLvActivity;
+import com.aiden.andmodule.activity.ToogleActivity;
+import com.aiden.andmodule.activity.WebActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
             cityNames.add("Listview");
             cityNames.add("CustomListview");
             cityNames.add("MultiDelListView");
-            cityNames.add("");
-            cityNames.add("");
+            cityNames.add("MultiCheckListView");
+            cityNames.add("SiplmeListview");
             cityNames.add("");
             cityNames.add("");
 
@@ -123,17 +136,32 @@ public class MainActivity extends AppCompatActivity {
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             startActivity(intent);
                             break;
+                        /**
+                         * 롱터치로 멀티 터치및 삭제 기능 있는 리스트뷰
+                          */
                         case 11:
-                            //Listview
+
                             intent = new Intent(MainActivity.this, MultiDelListActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             startActivity(intent);
                             break;
-                         //MultiDelListActivity
-                        //DialogActivity
-                        //ToogleActivity
-                        //SharedDataActivity
-                        //DBRecyclerActivity
+                        /**
+                         * 체크박스 있는 리스트뷰
+                         */
+                        case 12:
+
+                            intent = new Intent(MainActivity.this, MultiSimpleLvActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent);
+                            break;
+                         //SimpleLvActivity
+
+                        case 13:
+
+                            intent = new Intent(MainActivity.this, SimpleLvActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent);
+                            break;
 
                     }
 
