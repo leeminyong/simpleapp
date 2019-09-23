@@ -82,11 +82,8 @@ public class MultiDelListActivity extends AppCompatActivity {
                 mode.getMenuInflater().inflate(R.menu.del_list, menu);
                 return true;
             }
-
             @Override
-            public boolean onPrepareActionMode(android.view.ActionMode mode, Menu menu) {
-                return false;
-            }
+            public boolean onPrepareActionMode(android.view.ActionMode mode, Menu menu) { return false;    }
 
             @Override
             public boolean onActionItemClicked(android.view.ActionMode mode, MenuItem item) {
@@ -113,9 +110,7 @@ public class MultiDelListActivity extends AppCompatActivity {
             @Override
             public void onDestroyActionMode(android.view.ActionMode mode) {
                 listviewadapter.removeSelection();
-
             }
-
             @Override
             public void onItemCheckedStateChanged(android.view.ActionMode mode, int position, long id, boolean checked) {
                 // Capture total checked items
