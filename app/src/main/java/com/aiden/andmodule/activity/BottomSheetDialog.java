@@ -88,7 +88,6 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
         switch (view.getId()){
             case R.id.confirm:
                 Toast.makeText(getContext(),"Confirm--->"+sortIdx, Toast.LENGTH_SHORT).show();
-
                 break;
         }
         dismiss();
@@ -105,7 +104,6 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
         super.onResume();
         if(pref_Load_Sort()==0)
             r_btn1.setChecked(true);
-
         switch (pref_Load_Sort()){
             case 1:
                 r_btn1.setChecked(true);
