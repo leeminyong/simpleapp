@@ -13,16 +13,15 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.aiden.andmodule.LogUtil;
+import com.aiden.andmodule.R;
+import com.aiden.andmodule.adapter.ListViewEditListAdapter;
 import com.aiden.andmodule.db.MyEditDBHelper;
 import com.aiden.andmodule.model.MyEditWord;
-import com.aiden.andmodule.R;
-import com.aiden.andmodule.adapter.MyEditListAdapter;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -31,18 +30,18 @@ import java.util.Collection;
 /**
  MY 단어 메인
  */
-public class DBRecyclerActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
+public class DBListViewActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
     String TAG = getClass().getSimpleName();
     final int ADD_MODE = 100;
 
     ArrayList<MyEditWord> datas;
     ImageView ivNodata;
-    MyEditListAdapter adapter;
+    ListViewEditListAdapter adapter;
 
     Context mcontext;
     int idx;
-    RecyclerView mRecyclerView;
-    RecyclerView.LayoutManager mLayoutManager;
+    ListView listView;
+
 
     boolean bDEL_MODE;
 
@@ -52,12 +51,12 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dblist);
+        setContentView(R.layout.listview_dblist);
         mcontext = getApplicationContext();
-        mRecyclerView = findViewById(R.id.main_list);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        listView = findViewById(R.id.main_list);
+
+
+
         ivNodata = (ImageView) findViewById(R.id.img_nodata);
         refreshData();
         selectData();
@@ -133,8 +132,8 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
                     , vo.id, vo.word_eng, vo.word_kor);
             LogUtil.e(TAG, result_data);
         }
-        adapter = new MyEditListAdapter(this, R.layout.lv_myedit_item, datas);
-        mRecyclerView.setAdapter(adapter);
+        adapter = new ListViewEditListAdapter(this, R.layout.lv_myedit_item, datas);
+        listView.setAdapter(adapter);
         db.close();
         if (count() < 1)
             ivNodata.setVisibility(View.VISIBLE);
@@ -154,24 +153,30 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        //CheckBox chk_box = (CheckBox)findViewById(R.id.chk_box);
-
         if (item.getItemId() == R.id.action_setting) {
             //삭제
             if (!item.isChecked()) {
                 item.setTitle(R.string.action_option_3);
                 item.setChecked(true);
-                LogUtil.e(TAG, "삭제 클릭....");
+                LogUtil.e(TAG, "닫기 상태 ....");
                 setListEdit(true);
             }
             //편집
             else {
                 LogUtil.e(TAG, "편집 클릭....");
-                item.setTitle(R.string.action_option_1);
+                item.setTitle(R.string.action_option_3);
                 item.setChecked(false);
                 setListEdit(false);
-
+                SparseBooleanArray checkedItems = listView.getCheckedItemPositions();
+                LogUtil.e(TAG,"선택한 아이템 사이즈-->"+checkedItems.size());
+                int count = adapter.getCount();
+                for (int i = count - 1; i >= 0; i--) {
+                    if (checkedItems.get(i)) {
+                        LogUtil.e(TAG,"삭제되는 데이터들--->"+i);
+                        datas.remove(i);
+                    }
+                } // 모든 선택 상태 초기화.
+                listView.clearChoices() ;
                 adapter.notifyDataSetChanged();
             }
         }
@@ -210,7 +215,7 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
      * @param bEdit
      */
     public void setListEdit(boolean bEdit) {
-        for (int i = 0; i < adapter.getItemCount(); i++) {
+        for (int i = 0; i < adapter.getCount(); i++) {
             adapter.setb_Edit(bEdit);
         }
         adapter.notifyDataSetChanged();
@@ -232,7 +237,7 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
 
 
     private void item_edit(final int position) {
-        Intent intent = new Intent(DBRecyclerActivity.this, MyEditPopUp.class);
+        Intent intent = new Intent(DBListViewActivity.this, MyEditPopUp.class);
         intent.putExtra("mode", "edit");
         intent.putExtra("no", position);
         startActivityForResult(intent, ADD_MODE);
@@ -250,7 +255,7 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
 
 
     public void onAdd(View v){
-        Intent intent = new Intent(DBRecyclerActivity.this, MyEditPopUp.class);
+        Intent intent = new Intent(DBListViewActivity.this, MyEditPopUp.class);
         intent.putExtra("mode", "add");
         intent.putExtra("idx", idx);
         startActivityForResult(intent, ADD_MODE);
@@ -276,7 +281,7 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
     boolean flag=true;
     public void onAll(View view) {
 
-        LogUtil.e(TAG,"Size of data-->"+adapter.getItemCount());
+        LogUtil.e(TAG,"Size of data-->"+adapter.getCount());
         if(flag) {
             adapter.setAllChecked(true);
             adapter.set_allSell(true);
@@ -308,8 +313,8 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
                     , vo.id, vo.word_eng, vo.word_kor);
             LogUtil.e(TAG, result_data);
         }
-        adapter = new MyEditListAdapter(this, R.layout.lv_myedit_item, datas);
-        mRecyclerView.setAdapter(adapter);
+        adapter = new ListViewEditListAdapter(this, R.layout.lv_myedit_item, datas);
+        listView.setAdapter(adapter);
         db.close();
     }
 
@@ -331,8 +336,8 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
                         , vo.id, vo.word_eng, vo.word_kor);
                 LogUtil.e(TAG, result_data);
             }
-            adapter = new MyEditListAdapter(this, R.layout.lv_myedit_item, datas);
-            mRecyclerView.setAdapter(adapter);
+            adapter = new ListViewEditListAdapter(this, R.layout.lv_myedit_item, datas);
+        listView.setAdapter(adapter);
             db.close();
 
     }

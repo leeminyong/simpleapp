@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.aiden.andmodule.activity.BottomSheetActivity;
 import com.aiden.andmodule.activity.ConstLayout;
 import com.aiden.andmodule.activity.CustomListviewActivity;
+import com.aiden.andmodule.activity.DBListViewActivity;
 import com.aiden.andmodule.activity.DBRecyclerActivity;
 import com.aiden.andmodule.activity.DataBindingActivity;
 import com.aiden.andmodule.activity.DialogActivity;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             cityNames.add("MultiDelListView");
             cityNames.add("MultiCheckListView");
             cityNames.add("SiplmeListview");
-            cityNames.add("");
+            cityNames.add("DBListViewActivity");
             cityNames.add("");
 
             // 어댑터를 생성
@@ -159,6 +160,13 @@ public class MainActivity extends AppCompatActivity {
                         case 13:
 
                             intent = new Intent(MainActivity.this, SimpleLvActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent);
+                            break;
+                         //DBListViewActivity
+                        case 14:
+
+                            intent = new Intent(MainActivity.this, DBListViewActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             startActivity(intent);
                             break;

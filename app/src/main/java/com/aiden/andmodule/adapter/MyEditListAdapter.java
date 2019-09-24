@@ -59,7 +59,7 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     // 생성자로부터 전달된 ListBtnClickListener  저장.
 
     public void selecteAll() {
-       // datas.clear();
+        // datas.clear();
         selected.clear();
         //selected.addAll(datas);
         datas.addAll(selected);
@@ -78,7 +78,7 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         String remin = "";
-         myViewHolder = (MyViewHolder) holder;
+        myViewHolder = (MyViewHolder) holder;
         holder.itemView.setSelected(isItemSelected(position));
 
         final MyEditWord vo = datas.get(position);
@@ -96,33 +96,33 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             v.setBackgroundColor(Color.GRAY);
             LogUtil.e(TAG,"삭제모드 ...-->"+b_Edit);
 
-                if ( mSelectedItems.get(position, false) ){
-                    LogUtil.e(TAG,"클릭 색상  ...흰색 ");
-                    mSelectedItems.put(position, false);
-                    v.setBackgroundColor(Color.WHITE);
-                    countersToDelete.remove(vo.id);
-                    LogUtil.e(TAG,"클릭 색상  ...해제--> "+position);
-                    LogUtil.e(TAG,"클릭 색상  ...해제vo.id--> "+vo.id);
-                } else {
-                    LogUtil.e(TAG,"클릭 색상  ...선택--> "+position);
-                    LogUtil.e(TAG,"클릭 색상  ...선택 vo.id--> "+vo.id);
-                    mSelectedItems.put(position, true);
-                    v.setBackgroundColor(Color.GRAY);
-                    countersToDelete.add(vo.id);
-                }
+            if ( mSelectedItems.get(position, false) ){
+                LogUtil.e(TAG,"클릭 색상  ...흰색 ");
+                mSelectedItems.put(position, false);
+                v.setBackgroundColor(Color.WHITE);
+                countersToDelete.remove(vo.id);
+                LogUtil.e(TAG,"클릭 색상  ...해제--> "+position);
+                LogUtil.e(TAG,"클릭 색상  ...해제vo.id--> "+vo.id);
+            } else {
+                LogUtil.e(TAG,"클릭 색상  ...선택--> "+position);
+                LogUtil.e(TAG,"클릭 색상  ...선택 vo.id--> "+vo.id);
+                mSelectedItems.put(position, true);
+                v.setBackgroundColor(Color.GRAY);
+                countersToDelete.add(vo.id);
+            }
         });
 
 
 
-          if (isCheckedConfrim[position]) {
-              countersToDelete.add(vo.id);
-              myViewHolder.linear_item.setBackgroundColor(Color.GRAY);
-              LogUtil.e(TAG, "전체 선택한 포지션....-->" + position);
-          } else {
-              countersToDelete.remove(vo.id);
-              myViewHolder.linear_item.setBackgroundColor(Color.WHITE);
-              LogUtil.e(TAG, "전체 해지한 포지션 ....-->" + position);
-          }
+        if (isCheckedConfrim[position]) {
+            countersToDelete.add(vo.id);
+            myViewHolder.linear_item.setBackgroundColor(Color.GRAY);
+            LogUtil.e(TAG, "전체 선택한 포지션....-->" + position);
+        } else {
+            countersToDelete.remove(vo.id);
+            myViewHolder.linear_item.setBackgroundColor(Color.WHITE);
+            LogUtil.e(TAG, "전체 해지한 포지션 ....-->" + position);
+        }
 
     }
     public void setb_Edit(boolean b_Edit) {
