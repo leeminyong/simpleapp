@@ -21,8 +21,7 @@ public class MultiListViewAdapter extends ArrayAdapter<WorldPopulation> {
     List<WorldPopulation> worldpopulationlist;
     private SparseBooleanArray mSelectedItemsIds;
 
-    public MultiListViewAdapter(Context context, int resourceId,
-                                List<WorldPopulation> worldpopulationlist) {
+    public MultiListViewAdapter(Context context, int resourceId,List<WorldPopulation> worldpopulationlist) {
         super(context, resourceId, worldpopulationlist);
         mSelectedItemsIds = new SparseBooleanArray();
         this.context = context;
@@ -42,12 +41,10 @@ public class MultiListViewAdapter extends ArrayAdapter<WorldPopulation> {
         if (view == null) {
             holder = new ViewHolder();
             view = inflater.inflate(R.layout.listview_item, null);
-            // Locate the TextViews in lv_item.xml
-             holder.rank = (TextView) view.findViewById(R.id.rank);
-            holder.country = (TextView) view.findViewById(R.id.country);
-            holder.population = (TextView) view.findViewById(R.id.population);
-            // Locate the ImageView in lv_item.xml
-             holder.flag = (ImageView) view.findViewById(R.id.flag);
+            holder.rank = view.findViewById(R.id.rank);
+            holder.country = view.findViewById(R.id.country);
+            holder.population = view.findViewById(R.id.population);
+            holder.flag =  view.findViewById(R.id.flag);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();

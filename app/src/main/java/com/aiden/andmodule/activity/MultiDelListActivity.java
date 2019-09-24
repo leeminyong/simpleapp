@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.AbsListView.MultiChoiceModeListener;
 import android.widget.ListView;
 
@@ -60,7 +59,8 @@ public class MultiDelListActivity extends AppCompatActivity {
                 R.drawable.lion, R.drawable.tiger, R.drawable.cat};
 
         for (int i = 0; i < rank.length; i++) {
-            WorldPopulation worldpopulation = new WorldPopulation(flag[i],rank[i], country[i], population[i]);
+            WorldPopulation worldpopulation = new WorldPopulation(flag[i],
+                    rank[i], country[i], population[i]);
             worldpopulationlist.add(worldpopulation);
         }
 
@@ -74,24 +74,21 @@ public class MultiDelListActivity extends AppCompatActivity {
         // Binds the Adapter to the ListView
         list.setAdapter(listviewadapter);
         list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
-
         // Capture ListView item click
         list.setMultiChoiceModeListener(new MultiChoiceModeListener() {
 
             @Override
             public boolean onCreateActionMode(android.view.ActionMode mode, Menu menu) {
-              //  mode.getMenuInflater().inflate(R.menu.del_list, menu);
+                mode.getMenuInflater().inflate(R.menu.del_list, menu);
                 return true;
             }
-
             @Override
-            public boolean onPrepareActionMode(android.view.ActionMode mode, Menu menu) {
-                return false;
-            }
+            public boolean onPrepareActionMode(android.view.ActionMode mode, Menu menu) { return false;    }
 
             @Override
             public boolean onActionItemClicked(android.view.ActionMode mode, MenuItem item) {
-
+                switch (item.getItemId()) {
+                    case R.id.delete:
                         // Calls getSelectedIds method from MultiListViewAdapter Class
                         SparseBooleanArray selected = listviewadapter.getSelectedIds();
                         // Captures all selected ids with a loop
@@ -105,16 +102,15 @@ public class MultiDelListActivity extends AppCompatActivity {
                         // Close CAB
                         mode.finish();
                         return true;
-
-                
+                    default:
+                        return false;
+                }
             }
 
             @Override
             public void onDestroyActionMode(android.view.ActionMode mode) {
                 listviewadapter.removeSelection();
-
             }
-
             @Override
             public void onItemCheckedStateChanged(android.view.ActionMode mode, int position, long id, boolean checked) {
                 // Capture total checked items

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -154,26 +153,13 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        //CheckBox chk_box = (CheckBox)findViewById(R.id.chk_box);
-
         if (item.getItemId() == R.id.action_setting) {
-            //삭제
-            if (!item.isChecked()) {
-                item.setTitle(R.string.action_option_3);
-                item.setChecked(true);
-                LogUtil.e(TAG, "삭제 클릭....");
-                setListEdit(true);
-            }
-            //편집
-            else {
-                LogUtil.e(TAG, "편집 클릭....");
+
                 item.setTitle(R.string.action_option_1);
                 item.setChecked(false);
-                setListEdit(false);
 
-                adapter.notifyDataSetChanged();
-            }
+                //bDEL_MODE =false;
+
         }
         return super.onOptionsItemSelected(item);
     }
