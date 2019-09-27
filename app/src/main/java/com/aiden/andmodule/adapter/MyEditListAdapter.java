@@ -68,7 +68,7 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         myViewHolder.itemView.setOnClickListener(v -> {
             v.setBackgroundColor(Color.GRAY);
             LogUtil.e(TAG,"삭제모드 ...-->"+b_Edit);
-            LogUtil.e(TAG,"선택한  갯수---->"+countersToDelete.size());
+
 
                 if (isCheckedConfrim[position] ){
                     LogUtil.e(TAG,"클릭 색상  ...흰색 ");
@@ -78,6 +78,7 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     countersToDelete.remove(vo.id);
                     LogUtil.e(TAG,"클릭 색상  ...해제--> "+position);
                     LogUtil.e(TAG,"클릭 색상  ...해제vo.id--> "+vo.id);
+                    LogUtil.e(TAG,"선택한  갯수--1-->"+countersToDelete.size());
                 } else {
                     LogUtil.e(TAG,"클릭 색상  ...선택--> "+position);
                     LogUtil.e(TAG,"클릭 색상  ...선택 vo.id--> "+vo.id);
@@ -85,6 +86,7 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     isCheckedConfrim[position]= true;
                     v.setBackgroundColor(Color.GRAY);
                     countersToDelete.add(vo.id);
+                    LogUtil.e(TAG,"선택한  갯수--2-->"+countersToDelete.size());
                 }
         });
 
@@ -94,11 +96,15 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
               countersToDelete.add(vo.id);
               myViewHolder.linear_item.setBackgroundColor(Color.GRAY);
               LogUtil.e(TAG, "전체 선택한 포지션....-->" + position);
+              LogUtil.e(TAG,"선택한  갯수--3-->"+countersToDelete.size());
           } else {
               countersToDelete.remove(vo.id);
               myViewHolder.linear_item.setBackgroundColor(Color.WHITE);
               LogUtil.e(TAG, "전체 해지한 포지션 ....-->" + position);
+              LogUtil.e(TAG,"선택한  갯수--4-->"+countersToDelete.size());
           }
+
+
 
     }
     public void setb_Edit(boolean b_Edit) {
