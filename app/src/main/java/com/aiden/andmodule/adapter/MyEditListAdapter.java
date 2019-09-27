@@ -26,45 +26,22 @@ import java.util.Set;
 public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     String TAG = "MyEditListAdapter";
-
-
-
     /**
      * 전체 선택하기 위한 설정
      */
     boolean[] isCheckedConfrim;
-
-
     public boolean b_Edit;
-
-    public boolean is_allSell() {
-        return b_allSell;
-    }
-
-    public void set_allSell(boolean b_allSell) {
-        this.b_allSell = b_allSell;
-    }
-
-    private boolean b_allSell;
-
     MyViewHolder myViewHolder;
     private ArrayList<MyEditWord> datas;
-    ArrayList<MyEditWord> selected = new ArrayList<MyEditWord>();
+
     Context context;
     int resId;
     private Set<Integer> countersToDelete = new HashSet<Integer>();
     private SparseBooleanArray mSelectedItems = new SparseBooleanArray(0);
 
-    MyEditWord vo;
     // 생성자로부터 전달된 ListBtnClickListener  저장.
 
-    public void selecteAll() {
-       // datas.clear();
-        selected.clear();
-        //selected.addAll(datas);
-        datas.addAll(selected);
-        notifyDataSetChanged();
-    }
+
 
     public Set<Integer> getCountersToDelete() {
         LogUtil.e(TAG, "countersToDelete----->" + countersToDelete);
@@ -82,11 +59,7 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         holder.itemView.setSelected(isItemSelected(position));
 
         final MyEditWord vo = datas.get(position);
-        if(selected.contains(vo)){
-            LogUtil.e(TAG,"선택된 아이템...");
-        }else {
-            LogUtil.e(TAG,"선택안된 아이템...");
-        }
+
         myViewHolder.tx_no.setText(vo.id+"");//
         myViewHolder.tx_eng.setText(vo.word_eng);//
         myViewHolder.tx_kor.setText(vo.word_kor);//
@@ -95,11 +68,13 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         myViewHolder.itemView.setOnClickListener(v -> {
             v.setBackgroundColor(Color.GRAY);
             LogUtil.e(TAG,"삭제모드 ...-->"+b_Edit);
+            LogUtil.e(TAG,"선택한  갯수---->"+countersToDelete.size());
 
-                if ( mSelectedItems.get(position, false) ){
+                if (isCheckedConfrim[position] ){
                     LogUtil.e(TAG,"클릭 색상  ...흰색 ");
                     mSelectedItems.put(position, false);
                     v.setBackgroundColor(Color.WHITE);
+                    isCheckedConfrim[position]= false;
                     countersToDelete.remove(vo.id);
                     LogUtil.e(TAG,"클릭 색상  ...해제--> "+position);
                     LogUtil.e(TAG,"클릭 색상  ...해제vo.id--> "+vo.id);
@@ -107,6 +82,7 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     LogUtil.e(TAG,"클릭 색상  ...선택--> "+position);
                     LogUtil.e(TAG,"클릭 색상  ...선택 vo.id--> "+vo.id);
                     mSelectedItems.put(position, true);
+                    isCheckedConfrim[position]= true;
                     v.setBackgroundColor(Color.GRAY);
                     countersToDelete.add(vo.id);
                 }
@@ -169,20 +145,17 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             tx_kor = itemView.findViewById(R.id.txt_kor);
             tx_no = itemView.findViewById(R.id.txt_no);
             linear_item = itemView.findViewById(R.id.linear);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position = getAdapterPosition();
+            itemView.setOnClickListener(v -> {
+                int position = getAdapterPosition();
 
-                    if ( mSelectedItems.get(position, false) ){
-                        mSelectedItems.put(position, false);
-                        v.setBackgroundColor(Color.WHITE);
-                    } else {
-                        mSelectedItems.put(position, true);
-                        v.setBackgroundColor(Color.BLUE);
-                    }
-
+                if ( mSelectedItems.get(position, false) ){
+                    mSelectedItems.put(position, false);
+                    v.setBackgroundColor(Color.WHITE);
+                } else {
+                    mSelectedItems.put(position, true);
+                    v.setBackgroundColor(Color.BLUE);
                 }
+
             });
         }
     }

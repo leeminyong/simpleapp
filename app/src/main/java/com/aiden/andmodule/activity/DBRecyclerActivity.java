@@ -265,12 +265,12 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
         LogUtil.e(TAG,"Size of data-->"+adapter.getItemCount());
         if(flag) {
             adapter.setAllChecked(true);
-            adapter.set_allSell(true);
+
 
             flag = false;
         }else{
             adapter.setAllChecked(false);
-            adapter.set_allSell(false);
+
             flag = true;
         }
         // Adapter에 Data에 변화가 생겼을때 Adapter에 알려준다.

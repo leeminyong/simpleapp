@@ -74,11 +74,11 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
             if (position == R.id.rg_btn1) {
                 sortIdx = 1;
                 pref_Save_Sort(sortIdx);
-              //  Toast.makeText(getActivity(), "라디오 그룹 버튼1 눌렸습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "라디오 그룹 버튼1 눌렸습니다.", Toast.LENGTH_SHORT).show();
             } else if (position == R.id.rg_btn2) {
                 sortIdx = 2;
                 pref_Save_Sort(sortIdx);
-               // Toast.makeText(getActivity(), "라디오 그룹 버튼2 눌렸습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "라디오 그룹 버튼2 눌렸습니다.", Toast.LENGTH_SHORT).show();
             }
         }
     };
