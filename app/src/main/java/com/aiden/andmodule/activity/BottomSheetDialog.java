@@ -74,11 +74,11 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
             if (position == R.id.rg_btn1) {
                 sortIdx = 1;
                 pref_Save_Sort(sortIdx);
-              //  Toast.makeText(getActivity(), "라디오 그룹 버튼1 눌렸습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "라디오 그룹 버튼1 눌렸습니다.", Toast.LENGTH_SHORT).show();
             } else if (position == R.id.rg_btn2) {
                 sortIdx = 2;
                 pref_Save_Sort(sortIdx);
-               // Toast.makeText(getActivity(), "라디오 그룹 버튼2 눌렸습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "라디오 그룹 버튼2 눌렸습니다.", Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -88,7 +88,6 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
         switch (view.getId()){
             case R.id.confirm:
                 Toast.makeText(getContext(),"Confirm--->"+sortIdx, Toast.LENGTH_SHORT).show();
-
                 break;
         }
         dismiss();
@@ -105,7 +104,6 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
         super.onResume();
         if(pref_Load_Sort()==0)
             r_btn1.setChecked(true);
-
         switch (pref_Load_Sort()){
             case 1:
                 r_btn1.setChecked(true);

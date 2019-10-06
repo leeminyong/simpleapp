@@ -242,8 +242,6 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
     public void onAll(View view) {
         adapter.allSelectedItem();
         LogUtil.e(TAG, "선택한 갯수--->" + adapter.getCountItem());
-
-
     }
 
     public void onSort(View view) {

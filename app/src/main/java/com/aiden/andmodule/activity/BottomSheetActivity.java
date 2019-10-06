@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 //2019.09.14
 public class BottomSheetActivity extends AppCompatActivity {
-
+//2019.09.24 21 lmy test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
