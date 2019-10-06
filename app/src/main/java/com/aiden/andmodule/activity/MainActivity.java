@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             cityNames.add("Listview");
             cityNames.add("CustomListview");
             cityNames.add("MultiDelListView");
-            cityNames.add("");
+            cityNames.add("RecyclerView");
             cityNames.add("");
             cityNames.add("");
             cityNames.add("");
@@ -126,6 +126,12 @@ public class MainActivity extends AppCompatActivity {
                         case 11:
                             //Listview
                             intent = new Intent(MainActivity.this, MultiDelListActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent);
+                            break;
+                        case 12:
+                            //RecyclerViewActivity
+                            intent = new Intent(MainActivity.this, RecyclerViewActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             startActivity(intent);
                             break;

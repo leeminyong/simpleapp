@@ -2,6 +2,7 @@ package com.aiden.andmodule.activity;
 
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,25 +13,26 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.aiden.andmodule.LogUtil;
-import com.aiden.andmodule.db.MyEditDBHelper;
-import com.aiden.andmodule.model.MyEditWord;
 import com.aiden.andmodule.R;
 import com.aiden.andmodule.adapter.MyEditListAdapter;
+import com.aiden.andmodule.db.MyEditDBHelper;
+import com.aiden.andmodule.model.MyEditWord;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 
 /**
- MY 단어 메인
+ * MY 단어 메인
  */
-public class DBRecyclerActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
+public class DBRecyclerActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, MyEditListAdapter.OnListItemSelectedInterface {
     String TAG = getClass().getSimpleName();
     final int ADD_MODE = 100;
 
@@ -42,9 +44,6 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
     int idx;
     RecyclerView mRecyclerView;
     RecyclerView.LayoutManager mLayoutManager;
-
-    boolean bDEL_MODE;
-
 
 
     @Override
@@ -61,6 +60,7 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
         refreshData();
         selectData();
     }
+
     public int count() {
         int cnt = 0;
         MyEditDBHelper helper = new MyEditDBHelper(this);
@@ -85,7 +85,7 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
                 this.idx = id;
                 String word_eng = cursor.getString(1);
                 String word_kor = cursor.getString(2);
-                String result_data = String.format("ID=%d,word_eng:%s,word_kor:%s", id, word_eng,word_kor);
+                String result_data = String.format("ID=%d,word_eng:%s,word_kor:%s", id, word_eng, word_kor);
                 LogUtil.e(TAG, result_data);
             }
         }
@@ -107,7 +107,7 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
                 this.idx = id;
                 String word_eng = cursor.getString(1);
                 String word_kor = cursor.getString(2);
-                String result_data = String.format("ID=%d,word_eng:%s,word_kor:%s", id, word_eng,word_kor);
+                String result_data = String.format("ID=%d,word_eng:%s,word_kor:%s", id, word_eng, word_kor);
                 LogUtil.e(TAG, result_data);
             }
         }
@@ -116,6 +116,7 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
         adapter.notifyDataSetChanged();
         LogUtil.e(TAG, "데이터 리스트뷰 갱신.......");
     }
+
     private void refreshData() {
         MyEditDBHelper helper = new MyEditDBHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
@@ -132,7 +133,7 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
                     , vo.id, vo.word_eng, vo.word_kor);
             LogUtil.e(TAG, result_data);
         }
-        adapter = new MyEditListAdapter(this, R.layout.lv_myedit_item, datas);
+        adapter = new MyEditListAdapter(this, R.layout.lv_myedit_item, datas, this);
         mRecyclerView.setAdapter(adapter);
         db.close();
         if (count() < 1)
@@ -144,47 +145,41 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        adapter.initConter();
+
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.edit_list, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_setting) {
 
-                item.setTitle(R.string.action_option_1);
-                item.setChecked(false);
+            item.setTitle(R.string.action_option_1);
+            item.setChecked(false);
 
-                //bDEL_MODE =false;
+            //bDEL_MODE =false;
 
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void id_delete(Collection<Integer> ids){
+    private void id_delete(int ids) {
 
-        for(Integer s: ids){
-            LogUtil.e(TAG,"삭제할 아이디-->"+s);
+        SQLiteDatabase db = null;
 
-        }
+        LogUtil.e(TAG, "삭제할 id-->" + ids);
+        MyEditDBHelper helper = new MyEditDBHelper(this);
+        db = helper.getWritableDatabase();
+        String sql = "delete from tb_myedit where _id = ?";
+        Object[] params = {ids};
 
-        SQLiteDatabase db=null;
-        final Integer[] idsToDelete = new Integer[ids.size()];
+        db.execSQL(sql, params);
 
-        ids.toArray(idsToDelete);
-        for(Integer id: idsToDelete){
-            LogUtil.e(TAG,"삭제할 id-->"+id);
-            MyEditDBHelper helper = new MyEditDBHelper(this);
-            db = helper.getWritableDatabase();
-            String sql = "delete from tb_myedit where _id = ?";
-            Object[] params = {id};
-
-            db.execSQL(sql, params);
-        }
-        if(db!=null)
+        if (db != null)
             db.close();
 
     }
@@ -203,7 +198,6 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
     }
 
 
-
     @Override
     public void startActivityForResult(Intent intent, int requestCode) {
         if (intent == null) {
@@ -211,9 +205,10 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
         }
         super.startActivityForResult(intent, requestCode);
     }
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-      //  LogUtil.e(TAG,"클릭 pos-->"+position);
+        //  LogUtil.e(TAG,"클릭 pos-->"+position);
     }
 
 
@@ -233,48 +228,22 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
         }
     }
 
-
-
-    public void onAdd(View v){
+    public void onAdd(View v) {
         Intent intent = new Intent(DBRecyclerActivity.this, MyEditPopUp.class);
         intent.putExtra("mode", "add");
         intent.putExtra("idx", idx);
         startActivityForResult(intent, ADD_MODE);
-
     }
 
     public void onDel(View view) {
-
-        id_delete(adapter.getCountersToDelete());
-        refreshData();
-        adapter.initConter();
-        adapter.notifyDataSetChanged();
-
+        showMessge();
     }
-/*
+
     public void onAll(View view) {
-        //adapter.selecteAll();
-        adapter.setAllChecked(true);
-    }
-    */
+        adapter.allSelectedItem();
+        LogUtil.e(TAG, "선택한 갯수--->" + adapter.getCountItem());
 
 
-    boolean flag=true;
-    public void onAll(View view) {
-
-        LogUtil.e(TAG,"Size of data-->"+adapter.getItemCount());
-        if(flag) {
-            adapter.setAllChecked(true);
-            adapter.set_allSell(true);
-
-            flag = false;
-        }else{
-            adapter.setAllChecked(false);
-            adapter.set_allSell(false);
-            flag = true;
-        }
-        // Adapter에 Data에 변화가 생겼을때 Adapter에 알려준다.
-        adapter.notifyDataSetChanged();
     }
 
     public void onSort(View view) {
@@ -294,34 +263,90 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
                     , vo.id, vo.word_eng, vo.word_kor);
             LogUtil.e(TAG, result_data);
         }
-        adapter = new MyEditListAdapter(this, R.layout.lv_myedit_item, datas);
+        adapter = new MyEditListAdapter(this, R.layout.lv_myedit_item, datas, this);
         mRecyclerView.setAdapter(adapter);
+
         db.close();
     }
 
     public void onSort2(View view) {
 
-            MyEditDBHelper helper = new MyEditDBHelper(this);
-            SQLiteDatabase db = helper.getWritableDatabase();
-            //      String sql = "select * from tb_myedit ORDER BY word_eng ASC";
-            Cursor cursor = db.rawQuery("select * from tb_myedit ORDER BY _id ASC", null);
-            datas = new ArrayList<>();
-            while (cursor.moveToNext()) {
-                MyEditWord vo = new MyEditWord();
-                vo.id = cursor.getInt(0);
-                vo.word_eng = cursor.getString(1);
-                vo.word_kor = cursor.getString(2);
-                datas.add(vo);
+        MyEditDBHelper helper = new MyEditDBHelper(this);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        //      String sql = "select * from tb_myedit ORDER BY word_eng ASC";
+        Cursor cursor = db.rawQuery("select * from tb_myedit ORDER BY _id ASC", null);
+        datas = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            MyEditWord vo = new MyEditWord();
+            vo.id = cursor.getInt(0);
+            vo.word_eng = cursor.getString(1);
+            vo.word_kor = cursor.getString(2);
+            datas.add(vo);
 
-                String result_data = String.format("[VO] ID=%d ,word_eng:%s,word_kor:%s "
-                        , vo.id, vo.word_eng, vo.word_kor);
-                LogUtil.e(TAG, result_data);
-            }
-            adapter = new MyEditListAdapter(this, R.layout.lv_myedit_item, datas);
-            mRecyclerView.setAdapter(adapter);
-            db.close();
+            String result_data = String.format("[VO] ID=%d ,word_eng:%s,word_kor:%s "
+                    , vo.id, vo.word_eng, vo.word_kor);
+            LogUtil.e(TAG, result_data);
+        }
+        adapter = new MyEditListAdapter(this, R.layout.lv_myedit_item, datas, this);
+        mRecyclerView.setAdapter(adapter);
+        db.close();
 
     }
 
-    //selecteAll()
+    public void showMessge() {
+
+        //다이얼로그 객체 생성
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //속성 지정
+        builder.setTitle("안내");
+        builder.setMessage(adapter.getCountItem() + "개를 삭제할까요?");
+        //아이콘
+        builder.setIcon(android.R.drawable.ic_dialog_alert);
+
+
+        builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                adapter.DeleteItem();
+                adapter.notifyDataSetChanged();
+                refreshData();
+                LogUtil.e(TAG, "삭제했다..");
+
+
+            }
+        });
+
+
+        builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                //텍스트 뷰 객체를 넣어줌..
+                dialog.dismiss();
+
+            }
+        });
+
+        //만들어주기
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    @Override
+    public void onItemSelected(View v, int position) {
+        MyEditListAdapter.MyViewHolder viewHolder = (MyEditListAdapter.MyViewHolder) mRecyclerView.findViewHolderForAdapterPosition(position);
+
+        //Toast.makeText(this, viewHolder.tx_no.getText().toString(), Toast.LENGTH_SHORT).show();
+        LogUtil.e(TAG, "선택한것--->" + position);
+        LogUtil.e(TAG, "남은   갯수--->" + adapter.getCountItem());
+
+    }
+
+    public void onUnSelect(View view) {
+        adapter.clearSelectedItem();
+
+    }
+
+
 }

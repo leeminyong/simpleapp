@@ -19,6 +19,8 @@
         android:onClick="onAll"
         android:text="전체 선택"
         />
+
+
     <Button
         android:id="@+id/btn_del"
         android:layout_toRightOf="@+id/btn_all"
@@ -43,6 +45,17 @@
      android:onClick="onSort2"
      android:text="번호정렬"
      />
+
+    <Button
+        android:layout_toRightOf="@+id/btn_sort2"
+        android:layout_below="@+id/btn_all"
+        android:id="@+id/btnClear"
+        android:onClick="onUnSelect"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="선택해지" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_list"
