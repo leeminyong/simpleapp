@@ -343,7 +343,6 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
 
     public void onUnSelect(View view) {
         adapter.clearSelectedItem();
-
     }
 
 
