@@ -3,9 +3,6 @@ package com.aiden.andmodule.adapter;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
-
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,25 +11,20 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.aiden.andmodule.LogUtil;
+import com.aiden.andmodule.R;
 import com.aiden.andmodule.db.MyEditDBHelper;
 import com.aiden.andmodule.model.MyEditWord;
-import com.aiden.andmodule.R;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 /**
  * MY 단어
  */
 
 public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
     String TAG = "MyEditListAdapter";
     MyViewHolder myViewHolder;
     private ArrayList<MyEditWord> datas;
@@ -41,21 +33,12 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     int resId;
 
     private SparseBooleanArray mSelectedItems = new SparseBooleanArray(0);
-
+    private OnListItemSelectedInterface mListener;
     public interface OnListItemSelectedInterface {
         void onItemSelected(View v, int position);
     }
 
-    private OnListItemSelectedInterface mListener;
-
     public boolean b_Edit;
-
-
-    public void setData(ArrayList<MyEditWord> data) {
-        datas = data;
-        notifyDataSetChanged();
-    }
-
     private void toggleItemSelected(int position) {
 
         if (mSelectedItems.get(position, false) == true) {
@@ -76,10 +59,8 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
         myViewHolder = (MyViewHolder) holder;
         myViewHolder.itemView.setSelected(isItemSelected(position));
-
         final MyEditWord vo = datas.get(position);
         myViewHolder.tx_no.setText(vo.id + "");//
         myViewHolder.tx_eng.setText(vo.word_eng);//
@@ -90,36 +71,25 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         } else {
             holder.itemView.setBackgroundColor(Color.WHITE);
         }
-
-
     }
 
     public void setb_Edit(boolean b_Edit) {
         this.b_Edit = b_Edit;
     }
-
     // 아이템의 수
     @Override
     public int getItemCount() {
         return datas.size();
     }
-
-
     public int getCountItem() {
         return mSelectedItems.size();
     }
-
-
     public MyEditListAdapter(Context context, int resId, ArrayList<MyEditWord> datas, OnListItemSelectedInterface listener) {
         this.context = context;
         this.datas = datas;
         this.resId = resId;
         this.mListener = listener;
-
-
     }
-
-
     public void clearSelectedItem() {
         int position;
         for (int i = 0; i < mSelectedItems.size(); i++) {
@@ -133,26 +103,19 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     public void DeleteItem() {
         int position;
-
         for (int i = 0; i < mSelectedItems.size(); i++) {
             position = mSelectedItems.keyAt(i);
             mSelectedItems.put(position, false);
-
             LogUtil.e(TAG, "un selected--->" + datas.get(position).id);
-
             id_delete(datas.get(position).id);
-
             notifyItemChanged(position);
         }
-
         mSelectedItems.clear();
     }
 
 
     private void id_delete(int ids) {
-
         SQLiteDatabase db = null;
-
         LogUtil.e(TAG, "삭제할 id-->" + ids);
         MyEditDBHelper helper = new MyEditDBHelper(context);
         db = helper.getWritableDatabase();
@@ -170,11 +133,9 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             LogUtil.e(TAG, "all selected--->" + i);
         }
     }
-
     private boolean isItemSelected(int position) {
         return mSelectedItems.get(position, false);
     }
-
     /**
      * 뷰홀더
      */
