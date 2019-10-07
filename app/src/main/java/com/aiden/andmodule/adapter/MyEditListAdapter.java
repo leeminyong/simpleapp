@@ -84,57 +84,12 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         myViewHolder.tx_no.setText(vo.id + "");//
         myViewHolder.tx_eng.setText(vo.word_eng);//
         myViewHolder.tx_kor.setText(vo.word_kor);//
-<<<<<<< HEAD
-        //[수정] 리스트뷰 클릭 이벤트
-
-        myViewHolder.itemView.setOnClickListener(v -> {
-            v.setBackgroundColor(Color.GRAY);
-            LogUtil.e(TAG,"삭제모드 ...-->"+b_Edit);
-
-
-                if (isCheckedConfrim[position] ){
-                    LogUtil.e(TAG,"클릭 색상  ...흰색 ");
-                    mSelectedItems.put(position, false);
-                    v.setBackgroundColor(Color.WHITE);
-                    isCheckedConfrim[position]= false;
-                    countersToDelete.remove(vo.id);
-                    LogUtil.e(TAG,"클릭 색상  ...해제--> "+position);
-                    LogUtil.e(TAG,"클릭 색상  ...해제vo.id--> "+vo.id);
-                    LogUtil.e(TAG,"선택한  갯수--1-->"+countersToDelete.size());
-                } else {
-                    LogUtil.e(TAG,"클릭 색상  ...선택--> "+position);
-                    LogUtil.e(TAG,"클릭 색상  ...선택 vo.id--> "+vo.id);
-                    mSelectedItems.put(position, true);
-                    isCheckedConfrim[position]= true;
-                    v.setBackgroundColor(Color.GRAY);
-                    countersToDelete.add(vo.id);
-                    LogUtil.e(TAG,"선택한  갯수--2-->"+countersToDelete.size());
-                }
-        });
-
-
-
-          if (isCheckedConfrim[position]) {
-              countersToDelete.add(vo.id);
-              myViewHolder.linear_item.setBackgroundColor(Color.GRAY);
-              LogUtil.e(TAG, "전체 선택한 포지션....-->" + position);
-              LogUtil.e(TAG,"선택한  갯수--3-->"+countersToDelete.size());
-          } else {
-              countersToDelete.remove(vo.id);
-              myViewHolder.linear_item.setBackgroundColor(Color.WHITE);
-              LogUtil.e(TAG, "전체 해지한 포지션 ....-->" + position);
-              LogUtil.e(TAG,"선택한  갯수--4-->"+countersToDelete.size());
-          }
-=======
 
         if (isItemSelected(position)) {
             holder.itemView.setBackgroundColor(Color.BLUE);
         } else {
             holder.itemView.setBackgroundColor(Color.WHITE);
         }
-
->>>>>>> origin/master
-
 
 
     }
