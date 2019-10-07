@@ -57,4 +57,12 @@
     <color name="color_my_word_select_on">#FEF1E0</color>
     <color name="color_my_word_select_off">#FFFFFF</color>
 
+
+
+    <color name="normal_item_bg">#FFFFFFFF</color>
+    <color name="selected_item_bg">#FF0000FF</color>
+
+
+
+
 </resources>
