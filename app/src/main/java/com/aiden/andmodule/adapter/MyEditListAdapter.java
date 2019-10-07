@@ -3,9 +3,6 @@ package com.aiden.andmodule.adapter;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
-
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,18 +11,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.aiden.andmodule.LogUtil;
+import com.aiden.andmodule.R;
 import com.aiden.andmodule.db.MyEditDBHelper;
 import com.aiden.andmodule.model.MyEditWord;
-import com.aiden.andmodule.R;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 /**
  * MY 단어
@@ -36,10 +29,8 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     String TAG = "MyEditListAdapter";
     MyViewHolder myViewHolder;
     private ArrayList<MyEditWord> datas;
-
     Context context;
     int resId;
-
     private SparseBooleanArray mSelectedItems = new SparseBooleanArray(0);
 
     public interface OnListItemSelectedInterface {
@@ -134,14 +125,10 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public void DeleteItem() {
         int position;
         String arrIdx="";
-
         for (int i = 0; i < mSelectedItems.size(); i++) {
             position = mSelectedItems.keyAt(i);
             mSelectedItems.put(position, false);
-
             LogUtil.e(TAG, "un selected--->" + datas.get(position).id);
-
-           // id_delete(datas.get(position).id);
             arrIdx+=datas.get(position).id+",";
 
             notifyItemChanged(position);
