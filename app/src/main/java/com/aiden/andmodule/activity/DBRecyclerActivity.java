@@ -145,7 +145,6 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
     }
 
     @Override
@@ -160,7 +159,6 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
 
             item.setTitle(R.string.action_option_1);
             item.setChecked(false);
-
             //bDEL_MODE =false;
 
         }
@@ -168,7 +166,6 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
     }
 
     private void id_delete(int ids) {
-
         SQLiteDatabase db = null;
 
         LogUtil.e(TAG, "삭제할 id-->" + ids);
@@ -196,8 +193,6 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
         }
         adapter.notifyDataSetChanged();
     }
-
-
     @Override
     public void startActivityForResult(Intent intent, int requestCode) {
         if (intent == null) {
@@ -205,13 +200,10 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
         }
         super.startActivityForResult(intent, requestCode);
     }
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         //  LogUtil.e(TAG,"클릭 pos-->"+position);
     }
-
-
     private void item_edit(final int position) {
         Intent intent = new Intent(DBRecyclerActivity.this, MyEditPopUp.class);
         intent.putExtra("mode", "edit");
@@ -238,7 +230,6 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
     public void onDel(View view) {
         showMessge();
     }
-
     public void onAll(View view) {
         adapter.allSelectedItem();
         LogUtil.e(TAG, "선택한 갯수--->" + adapter.getCountItem());
