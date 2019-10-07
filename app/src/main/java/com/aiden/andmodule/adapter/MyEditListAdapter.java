@@ -133,6 +133,7 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     public void DeleteItem() {
         int position;
+        String arrIdx="";
 
         for (int i = 0; i < mSelectedItems.size(); i++) {
             position = mSelectedItems.keyAt(i);
@@ -140,26 +141,29 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
             LogUtil.e(TAG, "un selected--->" + datas.get(position).id);
 
-            id_delete(datas.get(position).id);
+           // id_delete(datas.get(position).id);
+            arrIdx+=datas.get(position).id+",";
 
             notifyItemChanged(position);
         }
+
+        String strIdx = arrIdx.replaceAll(",$", "");
+        id_delete(strIdx);
+        LogUtil.e(TAG,"붙은 idx--->"+ strIdx);
 
         mSelectedItems.clear();
     }
 
 
-    private void id_delete(int ids) {
+    private void id_delete(String ids) {
 
         SQLiteDatabase db = null;
 
         LogUtil.e(TAG, "삭제할 id-->" + ids);
         MyEditDBHelper helper = new MyEditDBHelper(context);
         db = helper.getWritableDatabase();
-        String sql = "delete from tb_myedit where _id = ?";
-        Object[] params = {ids};
-
-        db.execSQL(sql, params);
+        String str_query = String.format("delete from tb_myedit where _id in(%s)", ids);
+        db.execSQL(str_query);
         if (db != null)
             db.close();
     }
