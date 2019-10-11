@@ -32,23 +32,16 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     Context context;
     int resId;
     private SparseBooleanArray mSelectedItems = new SparseBooleanArray(0);
-
     public interface OnListItemSelectedInterface {
         void onItemSelected(View v, int position);
     }
-
     private OnListItemSelectedInterface mListener;
-
     public boolean b_Edit;
-
-
     public void setData(ArrayList<MyEditWord> data) {
         datas = data;
         notifyDataSetChanged();
     }
-
     private void toggleItemSelected(int position) {
-
         if (mSelectedItems.get(position, false) == true) {
             mSelectedItems.delete(position);
             notifyItemChanged(position);
@@ -57,8 +50,6 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             notifyItemChanged(position);
         }
     }
-
-
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.lv_myedit_item, parent, false);
@@ -81,36 +72,24 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         } else {
             holder.itemView.setBackgroundColor(Color.WHITE);
         }
-
-
     }
-
     public void setb_Edit(boolean b_Edit) {
         this.b_Edit = b_Edit;
     }
-
     // 아이템의 수
     @Override
     public int getItemCount() {
         return datas.size();
     }
-
-
     public int getCountItem() {
         return mSelectedItems.size();
     }
-
-
     public MyEditListAdapter(Context context, int resId, ArrayList<MyEditWord> datas, OnListItemSelectedInterface listener) {
         this.context = context;
         this.datas = datas;
         this.resId = resId;
         this.mListener = listener;
-
-
     }
-
-
     public void clearSelectedItem() {
         int position;
         for (int i = 0; i < mSelectedItems.size(); i++) {
