@@ -1,6 +1,7 @@
 package com.aiden.andmodule.activity;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -165,21 +166,7 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
         return super.onOptionsItemSelected(item);
     }
 
-    private void id_delete(int ids) {
-        SQLiteDatabase db = null;
 
-        LogUtil.e(TAG, "삭제할 id-->" + ids);
-        MyEditDBHelper helper = new MyEditDBHelper(this);
-        db = helper.getWritableDatabase();
-        String sql = "delete from tb_myedit where _id = ?";
-        Object[] params = {ids};
-
-        db.execSQL(sql, params);
-
-        if (db != null)
-            db.close();
-
-    }
 
     /**
      * 편집모드 클릭시 리스트에서 경고 이미지 출력 여부 결정
@@ -247,7 +234,6 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
             vo.word_eng = cursor.getString(1);
             vo.word_kor = cursor.getString(2);
             datas.add(vo);
-
             String result_data = String.format("[VO] ID=%d ,word_eng:%s,word_kor:%s "
                     , vo.id, vo.word_eng, vo.word_kor);
             LogUtil.e(TAG, result_data);
@@ -272,6 +258,7 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
             vo.word_kor = cursor.getString(2);
             datas.add(vo);
 
+            @SuppressLint("DefaultLocale")
             String result_data = String.format("[VO] ID=%d ,word_eng:%s,word_kor:%s "
                     , vo.id, vo.word_eng, vo.word_kor);
             LogUtil.e(TAG, result_data);
@@ -283,38 +270,23 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
     }
 
     public void showMessge() {
-
-        //다이얼로그 객체 생성
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        //속성 지정
         builder.setTitle("안내");
         builder.setMessage(adapter.getCountItem() + "개를 삭제할까요?");
-        //아이콘
         builder.setIcon(android.R.drawable.ic_dialog_alert);
+        builder.setPositiveButton("예", (dialog, which) -> {
+            adapter.DeleteItem();
+            adapter.notifyDataSetChanged();
+            refreshData();
+            LogUtil.e(TAG, "삭제했다..");
 
 
-        builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                adapter.DeleteItem();
-                adapter.notifyDataSetChanged();
-                refreshData();
-                LogUtil.e(TAG, "삭제했다..");
-
-
-            }
         });
 
 
-        builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+        builder.setNegativeButton("아니오", (dialog, which) -> {
+            dialog.dismiss();
 
-                //텍스트 뷰 객체를 넣어줌..
-                dialog.dismiss();
-
-            }
         });
 
         //만들어주기
