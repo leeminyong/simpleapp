@@ -66,7 +66,7 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         if (isItemSelected(position))
             holder.itemView.setBackgroundColor(Color.GRAY);
-         else
+        else
             holder.itemView.setBackgroundColor(Color.WHITE);
 
 

@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             cityNames.add("CustomListview");
             cityNames.add("MultiDelListView");
             cityNames.add("RecyclerView");
-            cityNames.add("");
+            cityNames.add("Imvoca");
             cityNames.add("");
             cityNames.add("");
 
@@ -132,6 +132,12 @@ public class MainActivity extends AppCompatActivity {
                         case 12:
                             //RecyclerViewActivity
                             intent = new Intent(MainActivity.this, RecyclerViewActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent);
+                            break;
+                        case 13:
+                            //RecyclerViewActivity
+                            intent = new Intent(MainActivity.this, ImvocaActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             startActivity(intent);
                             break;
