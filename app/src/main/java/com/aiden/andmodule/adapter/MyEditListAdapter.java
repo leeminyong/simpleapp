@@ -25,31 +25,19 @@ import java.util.ArrayList;
  */
 
 public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
     String TAG = "MyEditListAdapter";
     MyViewHolder myViewHolder;
     private ArrayList<MyEditWord> datas;
     Context context;
     int resId;
     private SparseBooleanArray mSelectedItems = new SparseBooleanArray(0);
-
+    private OnListItemSelectedInterface mListener;
+    public boolean b_Edit;
     public interface OnListItemSelectedInterface {
         void onItemSelected(View v, int position);
     }
-
-    private OnListItemSelectedInterface mListener;
-
-    public boolean b_Edit;
-
-
-    public void setData(ArrayList<MyEditWord> data) {
-        datas = data;
-        notifyDataSetChanged();
-    }
-
     private void toggleItemSelected(int position) {
-
-        if (mSelectedItems.get(position, false) == true) {
+        if (mSelectedItems.get(position, false)) {
             mSelectedItems.delete(position);
             notifyItemChanged(position);
         } else {
@@ -76,11 +64,10 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         myViewHolder.tx_eng.setText(vo.word_eng);//
         myViewHolder.tx_kor.setText(vo.word_kor);//
 
-        if (isItemSelected(position)) {
-            holder.itemView.setBackgroundColor(Color.BLUE);
-        } else {
+        if (isItemSelected(position))
+            holder.itemView.setBackgroundColor(Color.GRAY);
+         else
             holder.itemView.setBackgroundColor(Color.WHITE);
-        }
 
 
     }
@@ -94,23 +81,15 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public int getItemCount() {
         return datas.size();
     }
-
-
     public int getCountItem() {
         return mSelectedItems.size();
     }
-
-
     public MyEditListAdapter(Context context, int resId, ArrayList<MyEditWord> datas, OnListItemSelectedInterface listener) {
         this.context = context;
         this.datas = datas;
         this.resId = resId;
         this.mListener = listener;
-
-
     }
-
-
     public void clearSelectedItem() {
         int position;
         for (int i = 0; i < mSelectedItems.size(); i++) {
@@ -130,22 +109,15 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             mSelectedItems.put(position, false);
             LogUtil.e(TAG, "un selected--->" + datas.get(position).id);
             arrIdx+=datas.get(position).id+",";
-
             notifyItemChanged(position);
         }
-
         String strIdx = arrIdx.replaceAll(",$", "");
         id_delete(strIdx);
         LogUtil.e(TAG,"붙은 idx--->"+ strIdx);
-
         mSelectedItems.clear();
     }
-
-
     private void id_delete(String ids) {
-
         SQLiteDatabase db = null;
-
         LogUtil.e(TAG, "삭제할 id-->" + ids);
         MyEditDBHelper helper = new MyEditDBHelper(context);
         db = helper.getWritableDatabase();
@@ -185,8 +157,8 @@ public class MyEditListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 toggleItemSelected(position);
                 mListener.onItemSelected(v, position);
                 LogUtil.e(TAG, "position = " + position);
-                LogUtil.e(TAG, "남은 갯수  = " + getCountItem());
-                Toast.makeText(context, "남은 갯수  = " + getCountItem(), Toast.LENGTH_SHORT).show();
+                LogUtil.e(TAG, "선택 갯수  = " + getCountItem());
+                Toast.makeText(context, "선택  갯수  = " + getCountItem(), Toast.LENGTH_SHORT).show();
             });
         }
     }
