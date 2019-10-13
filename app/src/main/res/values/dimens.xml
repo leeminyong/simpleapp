@@ -1,3 +1,17 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!--나만의 단어장 text size  -->
+    <dimen name="myword_day_size_basic">16dp</dimen>
+    <dimen name="myword_day_size_step0">17dp</dimen>
+    <dimen name="myword_day_size_step1">20dp</dimen>
+    <dimen name="myword_day_size_step2">22dp</dimen>
+    <dimen name="myword_day_size_step3">24dp</dimen>
+    <dimen name="myword_day_size_step4">26dp</dimen>
+    <dimen name="myword_day_size_step5">28dp</dimen>
+    <dimen name="myword_day_size_step6">30dp</dimen>
+    <dimen name="myword_day_size_step7">32dp</dimen>
+    <dimen name="myword_day_size_step8">34dp</dimen>
+    <dimen name="myword_day_size_step9">36dp</dimen>
+    <dimen name="myword_day_size_step10">38dp</dimen>
 </resources>
