@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             cityNames.add("MultiDelListView");
             cityNames.add("RecyclerView");
             cityNames.add("Imvoca");
-            cityNames.add("");
+            cityNames.add("Rxandroid");
             cityNames.add("");
 
             // 어댑터를 생성
@@ -141,6 +141,13 @@ public class MainActivity extends AppCompatActivity {
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             startActivity(intent);
                             break;
+                        case 14:
+                            //RecyclerViewActivity
+                            intent = new Intent(MainActivity.this, RxSimpleActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent);
+                            break;
+                         //RxSimpleActivity
                          //MultiDelListActivity
                         //DialogActivity
                         //ToogleActivity
