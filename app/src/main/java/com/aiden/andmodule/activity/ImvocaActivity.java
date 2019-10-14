@@ -16,7 +16,8 @@ public class ImvocaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_imvoca);
+        setContentView(R.layout.fragment_wordview);
+        /*
          tv = findViewById(R.id.textView4);
         txtEng = findViewById(R.id.txtEng);
         txtPron = findViewById(R.id.txtPron);
@@ -26,12 +27,9 @@ public class ImvocaActivity extends AppCompatActivity {
 
         //tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.myword_day_size_basic));
         tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.myword_day_size_step0));
-/**
- * txtEng
- * txtPron
- * txtKor
- *
- */
+
+
+
         sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 tv.setText("onStop TrackingTouch");
@@ -47,6 +45,8 @@ public class ImvocaActivity extends AppCompatActivity {
                 fontResize(progress);
             }
         });
+
+        */
     }
 
     private void fontResize(int pos){
