@@ -4,57 +4,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#2F3B46"
     tools:context=".activity.ImvocaActivity">
 
     <RelativeLayout
         android:layout_above="@+id/font_seekbar"
         android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
         android:layout_height="656dp"
-        android:background="@drawable/imbg">
+        android:background="@drawable/bg_round_box">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_marginTop="70dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pic_bg"
+            android:minWidth="220dp"
+            android:minHeight="194dp" />
 
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
 
             android:id="@+id/txtEng"
+            android:layout_marginTop="12dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:textSize="51dp"
+            android:textSize="38sp"
             android:textColor="@color/black_80"
-            android:text="Write" />
+            android:text="relationship" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtPron"
+
             android:layout_below="@+id/txtEng"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:text="[ rætə (r) ]"
-            android:textSize="20dp"
+            android:text="[rɪˈleɪʃnʃɪp]"
+            android:textSize="15sp"
             />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtKor"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/txtPron"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text=" 쓰다,집필하다,작성하다"/>
+            android:textSize="17sp"
+            android:text="n. 관계"/>
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_marginTop="50dp"
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
              android:layout_centerHorizontal="true"
             android:textColor="@color/black_80"
+            android:visibility="gone"
+
             android:textSize="20dp"
              />
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_round_bottom"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/stn_eng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:gravity="center"
+                android:text="We are interested in developing a business relationship with you."
+                android:textColor="#284969"
+                android:textSize="17sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/stn_kor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="우리는 귀하와 사업 관계를 발전시키는 데 관심이 있습니다."
+                android:textSize="14sp"
+                android:textColor="#284969"
+                />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:padding="20dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/study_myvoca_on" />
+
+        <ImageView
+            android:padding="7dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/study_sound_on" />
 
     </RelativeLayout>
 
@@ -63,7 +127,7 @@
         android:background="@color/imbg"
         android:id="@+id/font_seekbar"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="65dp"
         android:gravity="center_vertical"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
@@ -73,7 +137,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="가"
-            android:textSize="20dp"
+            android:textSize="17sp"
             android:textColor="@color/color_default_text_white"
              />
         <SeekBar
@@ -82,15 +146,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="8"
-            android:max="10"
-            android:progress="3" />
+            android:thumb="@drawable/thumb"
+            android:max="6"
+            android:progress="2" />
         <TextView
             android:layout_weight="1"
             android:layout_width="0dp"
+            android:layout_marginRight="10dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="가"
-            android:textSize="30dp"
+            android:textSize="34sp"
             android:textColor="@color/color_default_text_white"
              />
     </LinearLayout>

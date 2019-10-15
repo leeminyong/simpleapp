@@ -27,7 +27,7 @@ class ImvocaKotlin : AppCompatActivity() {
         val sb = findViewById<SeekBar>(R.id.seekBar)
 
         //tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.myword_day_size_basic));
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.myword_day_size_step0))
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.myword_eng_step0))
         /**
          * txtEng
          * txtPron
@@ -53,18 +53,18 @@ class ImvocaKotlin : AppCompatActivity() {
 
     private fun fontResize(pos: Int) {
         when (pos) {
-            1 -> userFont = resources.getDimension(R.dimen.myword_day_size_step1)
-            2 -> userFont = resources.getDimension(R.dimen.myword_day_size_step2)
-            3 -> userFont = resources.getDimension(R.dimen.myword_day_size_step3)
-            4 -> userFont = resources.getDimension(R.dimen.myword_day_size_step4)
-            5 -> userFont = resources.getDimension(R.dimen.myword_day_size_step5)
-            6 -> userFont = resources.getDimension(R.dimen.myword_day_size_step6)
-            7 -> userFont = resources.getDimension(R.dimen.myword_day_size_step7)
-            8 -> userFont = resources.getDimension(R.dimen.myword_day_size_step8)
-            9 -> userFont = resources.getDimension(R.dimen.myword_day_size_step9)
-            10 -> userFont = resources.getDimension(R.dimen.myword_day_size_step10)
+            1 -> userFont = resources.getDimension(R.dimen.myword_eng_step0)
+            2 -> userFont = resources.getDimension(R.dimen.myword_eng_step0)
+            3 -> userFont = resources.getDimension(R.dimen.myword_eng_step0)
+            4 -> userFont = resources.getDimension(R.dimen.myword_eng_step0)
+            5 -> userFont = resources.getDimension(R.dimen.myword_eng_step0)
+            6 -> userFont = resources.getDimension(R.dimen.myword_eng_step0)
+            7 -> userFont = resources.getDimension(R.dimen.myword_eng_step0)
+            8 -> userFont = resources.getDimension(R.dimen.myword_eng_step0)
+            9 -> userFont = resources.getDimension(R.dimen.myword_eng_step0)
+            10 -> userFont = resources.getDimension(R.dimen.myword_eng_step0)
         }
-        txtEng.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.myword_day_size_step1))
+        txtEng.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.myword_eng_step0))
         txtPron.setTextSize(TypedValue.COMPLEX_UNIT_PX, userFont)
         txtKor.setTextSize(TypedValue.COMPLEX_UNIT_PX, userFont)
     }

@@ -1,12 +1,54 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
 
-    <!--나만의 단어장 text size  -->
-    <dimen name="myword_day_size_basic">16dp</dimen>
-    <dimen name="myword_day_size_step0">17dp</dimen>
-    <dimen name="myword_day_size_step1">20dp</dimen>
-    <dimen name="myword_day_size_step2">22dp</dimen>
-    <dimen name="myword_day_size_step3">24dp</dimen>
+    <!--나만의 단어장 영문   -->
+    <dimen name="myword_eng_step0">36sp</dimen>
+    <dimen name="myword_eng_step1">37sp</dimen>
+    <dimen name="myword_eng_step2">38sp</dimen><!--기본 -->
+    <dimen name="myword_eng_step3">39sp</dimen>
+    <dimen name="myword_eng_step4">40sp</dimen>
+    <dimen name="myword_eng_step5">41sp</dimen>
+    <dimen name="myword_eng_step6">42sp</dimen>
+
+    <!--나만의 단어장 발음기호   -->
+    <dimen name="myword_engdic_step0">13sp</dimen>
+    <dimen name="myword_engdic_step1">14sp</dimen>
+    <dimen name="myword_engdic_step2">15sp</dimen><!--기본 -->
+    <dimen name="myword_engdic_step3">16sp</dimen>
+    <dimen name="myword_engdic_step4">17sp</dimen>
+    <dimen name="myword_engdic_step5">18sp</dimen>
+    <dimen name="myword_engdic_step6">19sp</dimen>
+
+
+    <!--나만의 단어장 뜻  -->
+    <dimen name="myword_kor_step0">15sp</dimen>
+    <dimen name="myword_kor_step1">16sp</dimen>
+    <dimen name="myword_kor_step2">17sp</dimen><!--기본 -->
+    <dimen name="myword_kor_step3">18sp</dimen>
+    <dimen name="myword_kor_step4">19sp</dimen>
+    <dimen name="myword_kor_step5">20sp</dimen>
+    <dimen name="myword_kor_step6">21sp</dimen>
+
+    <!--나만의 영어문자-->
+    <dimen name="myword_eng_exam_step0">15sp</dimen>
+    <dimen name="myword_eng_exam_step1">16sp</dimen>
+    <dimen name="myword_eng_exam_step2">17sp</dimen><!--기본 -->
+    <dimen name="myword_eng_exam_step3">18sp</dimen>
+    <dimen name="myword_eng_exam_step4">19sp</dimen>
+    <dimen name="myword_eng_exam_step5">20sp</dimen>
+    <dimen name="myword_eng_exam_step6">21sp</dimen>
+
+
+    <!--나만의 한글해석-->
+    <dimen name="myword_kor_exam_step0">12sp</dimen>
+    <dimen name="myword_kor_exam_step1">13sp</dimen>
+    <dimen name="myword_kor_exam_step2">14sp</dimen><!--기본 -->
+    <dimen name="myword_kor_exam_step3">15sp</dimen>
+    <dimen name="myword_kor_exam_step4">16sp</dimen>
+    <dimen name="myword_kor_exam_step5">17sp</dimen>
+    <dimen name="myword_kor_exam_step6">18sp</dimen>
+
+    <!--
     <dimen name="myword_day_size_step4">26dp</dimen>
     <dimen name="myword_day_size_step5">28dp</dimen>
     <dimen name="myword_day_size_step6">30dp</dimen>
@@ -14,4 +56,7 @@
     <dimen name="myword_day_size_step8">34dp</dimen>
     <dimen name="myword_day_size_step9">36dp</dimen>
     <dimen name="myword_day_size_step10">38dp</dimen>
+
+    -->
+
 </resources>

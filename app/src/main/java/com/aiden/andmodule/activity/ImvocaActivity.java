@@ -1,33 +1,39 @@
 package com.aiden.andmodule.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatTextView;
 
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.aiden.andmodule.LogUtil;
 import com.aiden.andmodule.R;
 
 public class ImvocaActivity extends AppCompatActivity {
 
-    TextView tv,txtEng,txtPron,txtKor;
-    float userFont;
+    String TAG = "ImvocaActivity";
+
+
+    AppCompatTextView tv,txtPron,txtKor,txtEng,stn_eng,stn_kor;
+    float userEngFont,userDicFont,userKorFont,userEngExamFont,userKorExamFont;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_wordview);
-        /*
+        setContentView(R.layout.activity_imvoca);
          tv = findViewById(R.id.textView4);
         txtEng = findViewById(R.id.txtEng);
         txtPron = findViewById(R.id.txtPron);
         txtKor = findViewById(R.id.txtKor);
 
+        stn_eng = findViewById(R.id.stn_eng);
+        stn_kor = findViewById(R.id.stn_kor);
+
         SeekBar sb  = findViewById(R.id.seekBar);
-
-        //tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.myword_day_size_basic));
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.myword_day_size_step0));
-
+        int pos = sb.getProgress();
+        LogUtil.e(TAG,"현재 포지션.---->"+pos);
+        fontResize(pos);
 
 
         sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -45,47 +51,83 @@ public class ImvocaActivity extends AppCompatActivity {
                 fontResize(progress);
             }
         });
-
-        */
     }
 
+    /**
+     * userEngFont,userDicFont,userKorFont,userEngExamFont,userKorExamFont;
+     * @param pos
+     */
+    /**
+     * 0~6 ( 7단계)
+     *
+     * @param pos
+     */
     private void fontResize(int pos){
         switch (pos){
+            case 0:
+                userEngFont = getResources().getDimension(R.dimen.myword_eng_step0);
+                userDicFont = getResources().getDimension(R.dimen.myword_engdic_step0);
+                userKorFont = getResources().getDimension(R.dimen.myword_kor_step0);
+                userEngExamFont = getResources().getDimension(R.dimen.myword_eng_exam_step0);
+                userKorExamFont = getResources().getDimension(R.dimen.myword_kor_exam_step0);
+
+                break;
             case 1:
-                userFont = getResources().getDimension(R.dimen.myword_day_size_step1);
+                userEngFont = getResources().getDimension(R.dimen.myword_eng_step1);
+                userDicFont = getResources().getDimension(R.dimen.myword_engdic_step1);
+                userKorFont = getResources().getDimension(R.dimen.myword_kor_step1);
+                userEngExamFont = getResources().getDimension(R.dimen.myword_eng_exam_step1);
+                userKorExamFont = getResources().getDimension(R.dimen.myword_kor_exam_step1);
                 break;
             case 2:
-                userFont = getResources().getDimension(R.dimen.myword_day_size_step2);
+                userEngFont = getResources().getDimension(R.dimen.myword_eng_step2);
+                userDicFont = getResources().getDimension(R.dimen.myword_engdic_step2);
+                userKorFont = getResources().getDimension(R.dimen.myword_kor_step2);
+                userEngExamFont = getResources().getDimension(R.dimen.myword_eng_exam_step2);
+                userKorExamFont = getResources().getDimension(R.dimen.myword_kor_exam_step2);
                 break;
             case 3:
-                userFont = getResources().getDimension(R.dimen.myword_day_size_step3);
+                userEngFont = getResources().getDimension(R.dimen.myword_eng_step3);
+                userDicFont = getResources().getDimension(R.dimen.myword_engdic_step3);
+                userKorFont = getResources().getDimension(R.dimen.myword_kor_step2);
+                userEngExamFont = getResources().getDimension(R.dimen.myword_eng_exam_step2);
+                userKorExamFont = getResources().getDimension(R.dimen.myword_kor_exam_step2);
                 break;
             case 4:
-                userFont = getResources().getDimension(R.dimen.myword_day_size_step4);
+                userEngFont = getResources().getDimension(R.dimen.myword_eng_step4);
+                userDicFont = getResources().getDimension(R.dimen.myword_engdic_step4);
+                userKorFont = getResources().getDimension(R.dimen.myword_kor_step4);
+                userEngExamFont = getResources().getDimension(R.dimen.myword_eng_exam_step4);
+                userKorExamFont = getResources().getDimension(R.dimen.myword_kor_exam_step4);
                 break;
+
             case 5:
-                userFont = getResources().getDimension(R.dimen.myword_day_size_step5);
+                userEngFont = getResources().getDimension(R.dimen.myword_eng_step5);
+                userDicFont = getResources().getDimension(R.dimen.myword_engdic_step5);
+                userKorFont = getResources().getDimension(R.dimen.myword_kor_step5);
+                userEngExamFont = getResources().getDimension(R.dimen.myword_eng_exam_step5);
+                userKorExamFont = getResources().getDimension(R.dimen.myword_kor_exam_step5);
                 break;
             case 6:
-                userFont = getResources().getDimension(R.dimen.myword_day_size_step6);
+                userEngFont = getResources().getDimension(R.dimen.myword_eng_step6);
+                userDicFont = getResources().getDimension(R.dimen.myword_engdic_step6);
+                userKorFont = getResources().getDimension(R.dimen.myword_kor_step6);
+                userEngExamFont = getResources().getDimension(R.dimen.myword_eng_exam_step6);
+                userKorExamFont = getResources().getDimension(R.dimen.myword_kor_exam_step6);
                 break;
-            case 7:
-                userFont = getResources().getDimension(R.dimen.myword_day_size_step7);
-                break;
-            case 8:
-                userFont = getResources().getDimension(R.dimen.myword_day_size_step8);
-                break;
-            case 9:
-                userFont = getResources().getDimension(R.dimen.myword_day_size_step9);
-                break;
-            case 10:
-                userFont = getResources().getDimension(R.dimen.myword_day_size_step10);
-                break;
-
-
         }
-        txtEng.setTextSize(TypedValue.COMPLEX_UNIT_PX, userFont);
-        txtPron.setTextSize(TypedValue.COMPLEX_UNIT_PX, userFont);
-        txtKor.setTextSize(TypedValue.COMPLEX_UNIT_PX, userFont);
+
+        /**
+       * userDicFont = getResources().getDimension(R.dimen.myword_engdic_step3);
+       *userKorFont = getResources().getDimension(R.dimen.myword_kor_step3);
+       *userEngExamFont = getResources().getDimension(R.dimen.myword_eng_exam_step3);
+       * userKorExamFont = getResources().getDimension(R.dimen.myword_kor_exam_step3);
+         */
+        txtEng.setTextSize(TypedValue.COMPLEX_UNIT_PX, userEngFont);
+        txtPron.setTextSize(TypedValue.COMPLEX_UNIT_PX, userDicFont);
+        txtKor.setTextSize(TypedValue.COMPLEX_UNIT_PX, userKorFont);
+        stn_eng.setTextSize(TypedValue.COMPLEX_UNIT_PX, userEngExamFont);
+        stn_kor.setTextSize(TypedValue.COMPLEX_UNIT_PX, userKorExamFont);
+        LogUtil.e(TAG,"pos---->"+pos);
     }
 }

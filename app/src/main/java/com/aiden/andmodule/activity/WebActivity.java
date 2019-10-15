@@ -31,7 +31,8 @@ import java.lang.reflect.Method;
 public class WebActivity extends AppCompatActivity {
     String TAG = "WebActivity";
     private WebView webView;
-    private String URL = "https://m.hackers.co.kr/app/main/h_toeic.html?app=h_toeic&app_version=";
+    private String URL = "https://m.edu2080.co.kr/review?isapp=y";
+
     SwipeRefreshLayout swipe;
     ProgressBar progressBar;
 
