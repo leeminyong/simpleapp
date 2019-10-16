@@ -11,14 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.RxSimpleActivity"></activity>
+        <activity android:name=".activity.ButtonActivity"></activity>
+        <activity android:name=".activity.RxSimpleActivity" />
         <activity android:name=".activity.ImvocaActivity" />
         <activity android:name=".activity.RecyclerViewActivity" />
         <activity android:name=".activity.ListViewActivity" />
         <activity android:name=".activity.NinePatchActivity" />
         <activity android:name=".activity.DataBindingActivity" />
         <activity android:name=".activity.DialogActivity" />
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

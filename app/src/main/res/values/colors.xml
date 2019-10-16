@@ -63,6 +63,13 @@
 
     <color name="normal_item_bg">#FFFFFFFF</color>
     <color name="selected_item_bg">#FF0000FF</color>
+    <color name="white">#ffffff</color>
+    <!-- setting color -->
+    <color name="setting_txt_on">#ffffff</color>
+    <color name="setting_btn_on">#9992fc</color>
+
+    <color name="setting_txt_off">#8d9ba9</color>
+    <color name="setting_btn_off">#f5f8fa</color>
 
 
 
