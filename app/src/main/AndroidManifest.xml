@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ButtonActivity"></activity>
+        <activity android:name=".activity.KotlinActivity"></activity>
+        <activity android:name=".activity.ButtonActivity" />
         <activity android:name=".activity.RxSimpleActivity" />
         <activity android:name=".activity.ImvocaActivity" />
         <activity android:name=".activity.RecyclerViewActivity" />
