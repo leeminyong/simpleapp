@@ -3,7 +3,6 @@ package com.aiden.andmodule.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,7 +13,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,12 +38,10 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
     ArrayList<MyEditWord> datas;
     ImageView ivNodata;
     MyEditListAdapter adapter;
-
     Context mcontext;
     int idx;
     RecyclerView mRecyclerView;
     RecyclerView.LayoutManager mLayoutManager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,11 +53,10 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        ivNodata = (ImageView) findViewById(R.id.img_nodata);
+        ivNodata = findViewById(R.id.img_nodata);
         refreshData();
         selectData();
     }
-
     public int count() {
         int cnt = 0;
         MyEditDBHelper helper = new MyEditDBHelper(this);
@@ -72,8 +67,6 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
         cnt = cursor.getCount();
         return cnt;
     }
-
-
     private void selectData() {
         MyEditDBHelper helper = new MyEditDBHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
@@ -165,9 +158,6 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-
     /**
      * 편집모드 클릭시 리스트에서 경고 이미지 출력 여부 결정
      * false: 체크박스 가린다.
@@ -240,7 +230,6 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
         }
         adapter = new MyEditListAdapter(this, R.layout.lv_myedit_item, datas, this);
         mRecyclerView.setAdapter(adapter);
-
         db.close();
     }
 
@@ -279,14 +268,9 @@ public class DBRecyclerActivity extends AppCompatActivity implements AdapterView
             adapter.notifyDataSetChanged();
             refreshData();
             LogUtil.e(TAG, "삭제했다..");
-
-
         });
-
-
         builder.setNegativeButton("아니오", (dialog, which) -> {
             dialog.dismiss();
-
         });
 
         //만들어주기

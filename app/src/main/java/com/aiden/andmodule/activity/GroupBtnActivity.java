@@ -20,13 +20,13 @@ public class GroupBtnActivity extends AppCompatActivity {
         setContentView(R.layout.activity_groupbtn);
 
         //라디오 버튼 설정
-        r_btn1 = (RadioButton) findViewById(R.id.rg_btn1);
-        r_btn2 = (RadioButton) findViewById(R.id.rg_btn2);
+        r_btn1 = findViewById(R.id.rg_btn1);
+        r_btn2 = findViewById(R.id.rg_btn2);
         r_btn1.setOnClickListener(radioButtonClickListener);
         r_btn2.setOnClickListener(radioButtonClickListener);
 
         //라디오 그룹 설정
-        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        radioGroup = findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
 
     }
@@ -40,14 +40,11 @@ public class GroupBtnActivity extends AppCompatActivity {
     };
 
     //라디오 그룹 클릭 리스너
-    RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener = new RadioGroup.OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(RadioGroup radioGroup, @IdRes int position) {
-            if (position == R.id.rg_btn1) {
-                Toast.makeText(GroupBtnActivity.this, "라디오 그룹 버튼1 눌렸습니다.", Toast.LENGTH_SHORT).show();
-            } else if (position == R.id.rg_btn2) {
-                Toast.makeText(GroupBtnActivity.this, "라디오 그룹 버튼2 눌렸습니다.", Toast.LENGTH_SHORT).show();
-            }
+    RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener = (radioGroup, position) -> {
+        if (position == R.id.rg_btn1) {
+            Toast.makeText(GroupBtnActivity.this, "라디오 그룹 버튼1 눌렸습니다.", Toast.LENGTH_SHORT).show();
+        } else if (position == R.id.rg_btn2) {
+            Toast.makeText(GroupBtnActivity.this, "라디오 그룹 버튼2 눌렸습니다.", Toast.LENGTH_SHORT).show();
         }
     };
 }

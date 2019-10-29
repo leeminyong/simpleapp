@@ -46,10 +46,10 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
          editor = prefs.edit();
         confirm = view.findViewById(R.id.confirm);
 
-        r_btn1 = (RadioButton) view.findViewById(R.id.rg_btn1);
-        r_btn2 = (RadioButton) view.findViewById(R.id.rg_btn2);
+        r_btn1 = view.findViewById(R.id.rg_btn1);
+        r_btn2 = view.findViewById(R.id.rg_btn2);
 
-        radioGroup = (RadioGroup) view.findViewById(R.id.radioGroup);
+        radioGroup = view.findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
 
         confirm.setOnClickListener(this);

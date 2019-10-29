@@ -16,14 +16,12 @@ public class BottomSheetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bottomsheet);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                BottomSheetDialog bottomSheetDialog = BottomSheetDialog.getInstance();
-                bottomSheetDialog.show(getSupportFragmentManager(),"bottomSheet");
-            }
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(view -> {
+            BottomSheetDialog bottomSheetDialog = BottomSheetDialog.getInstance();
+            bottomSheetDialog.show(getSupportFragmentManager(),"bottomSheet");
         });
+
     }
 
 
