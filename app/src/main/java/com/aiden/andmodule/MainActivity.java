@@ -27,6 +27,7 @@ import com.aiden.andmodule.activity.RecyclerViewActivity;
 import com.aiden.andmodule.activity.RxSimpleActivity;
 import com.aiden.andmodule.activity.SharedDataActivity;
 import com.aiden.andmodule.activity.ToogleActivity;
+import com.aiden.andmodule.activity.VMLDbindActivity;
 import com.aiden.andmodule.activity.WebActivity;
 
 import java.util.ArrayList;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             cityNames.add("Rxandroid");
             cityNames.add("Button UI");
             cityNames.add("KotlinTest");
+            cityNames.add("MVVMTest");
             //KotlinActivity
 
             // 어댑터를 생성
@@ -167,6 +169,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 16:
                         intent = new Intent(MainActivity.this, KotlinActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        break;
+                    case 17:
+                        intent = new Intent(MainActivity.this, VMLDbindActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;
