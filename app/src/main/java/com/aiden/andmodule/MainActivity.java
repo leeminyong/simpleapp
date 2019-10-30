@@ -177,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, VMLDbindActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
+                        break;
                     case 18:
                         intent = new Intent(MainActivity.this, DialogActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
