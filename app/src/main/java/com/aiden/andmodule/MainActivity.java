@@ -2,12 +2,9 @@ package com.aiden.andmodule;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ListAdapter;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +15,7 @@ import com.aiden.andmodule.activity.CustomListviewActivity;
 import com.aiden.andmodule.activity.DBRecyclerActivity;
 import com.aiden.andmodule.activity.DataBindingActivity;
 import com.aiden.andmodule.activity.DialogActivity;
+import com.aiden.andmodule.activity.TabHostActivity;
 import com.aiden.andmodule.activity.GroupBtnActivity;
 import com.aiden.andmodule.activity.ImvocaActivity;
 import com.aiden.andmodule.activity.KotlinActivity;
@@ -39,36 +37,39 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        List<String> cityNames;
+        List<String> menuNames;
 
 
 
             // 데이터 준비
-            cityNames = new ArrayList<String>();
-            cityNames.add("Groupbtn");
-            cityNames.add("BottomSheetDialog");
-            cityNames.add("DBListview");
-            cityNames.add("데이터저장");
-            cityNames.add("WebView");
-            cityNames.add("Toogle");
-            cityNames.add("TabHost");
-            cityNames.add("ConsLayout");
-            cityNames.add("Databinding");
-            cityNames.add("Listview");
-            cityNames.add("CustomListview");
-            cityNames.add("MultiDelListView");
-            cityNames.add("RecyclerView");
-            cityNames.add("Imvoca");
-            cityNames.add("Rxandroid");
-            cityNames.add("Button UI");
-            cityNames.add("KotlinTest");
-            cityNames.add("MVVMTest");
+
+        menuNames = new ArrayList<String>();
+        menuNames.add("Groupbtn");
+        menuNames.add("BottomSheetDialog");
+        menuNames.add("DBListview");
+        menuNames.add("데이터저장");
+        menuNames.add("WebView");
+        menuNames.add("Toogle");
+        menuNames.add("TabHost");
+        menuNames.add("ConsLayout");
+        menuNames.add("Databinding");
+        menuNames.add("Listview");
+        menuNames.add("CustomListview");
+        menuNames.add("MultiDelListView");
+        menuNames.add("RecyclerView");
+        menuNames.add("Imvoca");
+        menuNames.add("Rxandroid");
+        menuNames.add("Button UI");
+        menuNames.add("KotlinTest");
+        menuNames.add("DataBinding");
+        menuNames.add("DialogBox");
+
             //KotlinActivity
 
             // 어댑터를 생성
 
             ListAdapter adapter = new ArrayAdapter<>(this,
-                    R.layout.list_item, R.id.lable, cityNames);
+                    R.layout.list_item, R.id.lable, menuNames);
 
 
             // 어댑터를 설정
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 6:
-                        intent = new Intent(MainActivity.this, DialogActivity.class);
+                        intent = new Intent(MainActivity.this, TabHostActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;
@@ -174,6 +175,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 17:
                         intent = new Intent(MainActivity.this, VMLDbindActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                    case 18:
+                        intent = new Intent(MainActivity.this, DialogActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;

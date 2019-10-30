@@ -15,7 +15,9 @@
     <color name="stats_dayTime_color">#5b6167</color>
     <color name="stats_totalTime_color">#333333</color>
 
-
+    <color name="green">#00aa93</color>
+    <color name="dark_green">#008876</color>
+    <color name="soft_gray">#888888</color>
     <color name="color_default_white">#FFFFFF</color>
     <color name="color_spinner_white">#F7F7F7</color>
     <color name="color_spinner_border">#D9D9D9</color>

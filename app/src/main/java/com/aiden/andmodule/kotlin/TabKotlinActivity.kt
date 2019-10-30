@@ -54,10 +54,10 @@ class TabKotlinActivity : AppCompatActivity() {
 
             if (id == 0) {
                 // your method 1
-                LogUtil.e("DialogActivity", "tab  1 ")
+                LogUtil.e("TabHostActivity", "tab  1 ")
             } else if (id == 1) {
                 // your method 2
-                LogUtil.e("DialogActivity", "tab  2 ")
+                LogUtil.e("TabHostActivity", "tab  2 ")
             }
             for (i in 0 until tabHost1.tabWidget.childCount) {
                 tabHost1.tabWidget.getChildAt(i).setBackgroundColor(Color.parseColor("#FF0000")) // unselected

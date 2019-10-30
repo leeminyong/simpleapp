@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.VMLDbindActivity"></activity>
+        <activity android:name=".activity.DialogActivity"></activity>
         <activity android:name=".activity.KotlinActivity" />
         <activity android:name=".activity.ButtonActivity" />
         <activity android:name=".activity.RxSimpleActivity" />
@@ -20,7 +21,7 @@
         <activity android:name=".activity.ListViewActivity" />
         <activity android:name=".activity.NinePatchActivity" />
         <activity android:name=".activity.DataBindingActivity" />
-        <activity android:name=".activity.DialogActivity" />
+        <activity android:name=".activity.TabHostActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
