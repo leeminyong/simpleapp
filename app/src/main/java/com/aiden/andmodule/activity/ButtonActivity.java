@@ -2,6 +2,7 @@ package com.aiden.andmodule.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ public class ButtonActivity extends AppCompatActivity {
         TextView font_btn2 = findViewById(R.id.txt_font2);
         TextView font_btn3 = findViewById(R.id.txt_font3);
         TextView font_btn4 = findViewById(R.id.txt_font4);
+        Context context = getApplicationContext();
 
 
 

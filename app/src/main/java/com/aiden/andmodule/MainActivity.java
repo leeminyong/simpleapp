@@ -15,6 +15,7 @@ import com.aiden.andmodule.activity.CustomListviewActivity;
 import com.aiden.andmodule.activity.DBRecyclerActivity;
 import com.aiden.andmodule.activity.DataBindingActivity;
 import com.aiden.andmodule.activity.DialogActivity;
+import com.aiden.andmodule.activity.OkHttpActivity;
 import com.aiden.andmodule.activity.TabHostActivity;
 import com.aiden.andmodule.activity.GroupBtnActivity;
 import com.aiden.andmodule.activity.ImvocaActivity;
@@ -63,21 +64,17 @@ public class MainActivity extends AppCompatActivity {
         menuNames.add("KotlinTest");
         menuNames.add("DataBinding");
         menuNames.add("DialogBox");
+        menuNames.add("OkHttp");
 
-            //KotlinActivity
-
-            // 어댑터를 생성
-
-            ListAdapter adapter = new ArrayAdapter<>(this,
-                    R.layout.list_item, R.id.lable, menuNames);
+        ListAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.lable, menuNames);
 
 
-            // 어댑터를 설정
-            GridView gridView = findViewById(R.id.gridview);
-            gridView.setAdapter(adapter);
+        // 어댑터를 설정
+        GridView gridView = findViewById(R.id.gridview);
+        gridView.setAdapter(adapter);
 
-            // 항목 클릭시 위치값과 값 토스트로 출력
-            gridView.setOnItemClickListener((parent, view, position, id) -> {
+        // 항목 클릭시 위치값과 값 토스트로 출력
+        gridView.setOnItemClickListener((parent, view, position, id) -> {
 
 
                 Intent intent = null;
@@ -180,6 +177,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 18:
                         intent = new Intent(MainActivity.this, DialogActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        break;
+                    case 19:
+                        intent = new Intent(MainActivity.this, OkHttpActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;
