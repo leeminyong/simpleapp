@@ -5,22 +5,22 @@ package com.aiden.andmodule.model;
  */
 
 public class Weather {
-    private String city;        // 도시명
-    private String temp;        // 기온
+    private String country;        // 도시명
     private String weather;     // 날씨 (맑음, 비, 구름, 눈)
+    private String temp;        // 기온
 
     public Weather(String city, String temp, String weather) {
-        this.city = city;
+        this.country = city;
         this.temp = temp;
         this.weather = weather;
     }
 
     public String getCity() {
-        return city;
+        return country;
     }
 
     public void setCity(String city) {
-        this.city = city;
+        this.country = city;
     }
 
     public String getTemp() {
@@ -42,10 +42,11 @@ public class Weather {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Weather{");
-        sb.append("city='").append(city).append('\'');
+        sb.append("country='").append(country).append('\'');
         sb.append(", temp='").append(temp).append('\'');
         sb.append(", weather='").append(weather).append('\'');
         sb.append('}');
+        sb.append("\n");
         return sb.toString();
     }
 }
