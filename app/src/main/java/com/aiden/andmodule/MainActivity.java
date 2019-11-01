@@ -16,6 +16,7 @@ import com.aiden.andmodule.activity.DBRecyclerActivity;
 import com.aiden.andmodule.activity.DataBindingActivity;
 import com.aiden.andmodule.activity.DialogActivity;
 import com.aiden.andmodule.activity.OkHttpActivity;
+import com.aiden.andmodule.activity.RoomActivity;
 import com.aiden.andmodule.activity.TabHostActivity;
 import com.aiden.andmodule.activity.GroupBtnActivity;
 import com.aiden.andmodule.activity.ImvocaActivity;
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         menuNames.add("DataBinding");
         menuNames.add("DialogBox");
         menuNames.add("OkHttp");
+        menuNames.add("Room");
 
         ListAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.lable, menuNames);
 
@@ -182,6 +184,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 19:
                         intent = new Intent(MainActivity.this, OkHttpActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        break;
+                    case 20:
+                        intent = new Intent(MainActivity.this, RoomActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;
