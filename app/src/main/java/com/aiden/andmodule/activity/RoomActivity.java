@@ -32,10 +32,12 @@ public class RoomActivity extends AppCompatActivity {
         final  AppDatabase db = Room.databaseBuilder(this,AppDatabase.class,"todo-db")
                 .allowMainThreadQueries()
                 .build();
+        // UI  갱신
         db.todoDao().getAll().observe(this, todos -> {
             txtResult.setText(todos.toString());
-        });
 
+        });
+        //DB에 Insert
         findViewById(R.id.btn_add).setOnClickListener(v -> {
             db.todoDao().insert(new Todo(mEdit.getText().toString()));
         });
