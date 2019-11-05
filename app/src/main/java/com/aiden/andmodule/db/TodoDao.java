@@ -1,5 +1,6 @@
 package com.aiden.andmodule.db;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -10,8 +11,9 @@ import java.util.List;
 
 @Dao
 public interface TodoDao {
+
     @Query("select * from Todo")
-    List<Todo> getAll();
+    LiveData<List<Todo>> getAll();
     @Insert
     void insert(Todo todo);
     @Update
