@@ -15,8 +15,10 @@ import com.aiden.andmodule.activity.CustomListviewActivity;
 import com.aiden.andmodule.activity.DBRecyclerActivity;
 import com.aiden.andmodule.activity.DataBindingActivity;
 import com.aiden.andmodule.activity.DialogActivity;
+import com.aiden.andmodule.activity.LiveDataRoomAct;
 import com.aiden.andmodule.activity.OkHttpActivity;
-import com.aiden.andmodule.activity.RoomActivity;
+import com.aiden.andmodule.activity.RoomAct;
+import com.aiden.andmodule.activity.RxJavaActivity;
 import com.aiden.andmodule.activity.TabHostActivity;
 import com.aiden.andmodule.activity.GroupBtnActivity;
 import com.aiden.andmodule.activity.ImvocaActivity;
@@ -28,19 +30,20 @@ import com.aiden.andmodule.activity.RxSimpleActivity;
 import com.aiden.andmodule.activity.SharedDataActivity;
 import com.aiden.andmodule.activity.ToogleActivity;
 import com.aiden.andmodule.activity.VMLDbindActivity;
+import com.aiden.andmodule.activity.ViewModelActivity;
 import com.aiden.andmodule.activity.WebActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         List<String> menuNames;
-
+        LogUtil.e(TAG,"onCreate..");
 
 
             // 데이터 준비
@@ -67,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
         menuNames.add("DialogBox");
         menuNames.add("OkHttp");
         menuNames.add("Room");
+        menuNames.add("LiveDataRoom");
+        menuNames.add("ViewModel");
+        menuNames.add("RxJava");
 
         ListAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.lable, menuNames);
 
@@ -188,7 +194,22 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 20:
-                        intent = new Intent(MainActivity.this, RoomActivity.class);
+                        intent = new Intent(MainActivity.this, RoomAct.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        break;
+                    case 21:
+                        intent = new Intent(MainActivity.this, LiveDataRoomAct.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        break;
+                    case 22:
+                        intent = new Intent(MainActivity.this, ViewModelActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        break;
+                    case 23:
+                        intent = new Intent(MainActivity.this, RxJavaActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;

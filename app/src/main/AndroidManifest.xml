@@ -11,8 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.RoomActivity"></activity>
-        <activity android:name=".activity.OkHttpActivity" />
+        <activity android:name=".activity.RxJavaActivity"></activity>
+        <activity
+            android:name=".activity.RoomAct"
+            android:label="Room" />
+        <activity
+            android:name=".activity.LiveDataRoomAct"
+            android:label="LiveData" />
+        <activity
+            android:name=".activity.ViewModelActivity"
+            android:label="ViewModel" />
+        <activity
+            android:name=".activity.OkHttpActivity"
+            android:label="OkHttp" />
         <activity android:name=".activity.VMLDbindActivity" />
         <activity android:name=".activity.DialogActivity" />
         <activity android:name=".activity.KotlinActivity" />

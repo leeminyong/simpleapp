@@ -4,12 +4,12 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Todo {
+public class LiveTodo {
     @PrimaryKey(autoGenerate = true)
     private  int id;
     private  String title;
 
-    public Todo(String title) {
+    public LiveTodo(String title) {
         this.title = title;
     }
 
