@@ -18,6 +18,7 @@ import com.aiden.andmodule.activity.DialogActivity;
 import com.aiden.andmodule.activity.LiveDataRoomAct;
 import com.aiden.andmodule.activity.OkHttpActivity;
 import com.aiden.andmodule.activity.RoomAct;
+import com.aiden.andmodule.activity.RxBindingAct;
 import com.aiden.andmodule.activity.RxJavaActivity;
 import com.aiden.andmodule.activity.TabHostActivity;
 import com.aiden.andmodule.activity.GroupBtnActivity;
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         menuNames.add("LiveDataRoom");
         menuNames.add("ViewModel");
         menuNames.add("RxJava");
+        menuNames.add("RxBinding");
 
         ListAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.lable, menuNames);
 
@@ -210,6 +212,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 23:
                         intent = new Intent(MainActivity.this, RxJavaActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        break;
+                    case 24:
+                        intent = new Intent(MainActivity.this, RxBindingAct.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;
