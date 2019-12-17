@@ -30,6 +30,9 @@
         <activity android:name=".activity.SimpleOkHttpAct"
             android:label="SimpleOKhttp"
             />
+        <activity android:name=".activity.RetroJsonAct"
+            android:label="SimpleOKhttp"
+            />
         <activity android:name=".activity.VMLDbindActivity" />
         <activity android:name=".activity.DialogActivity" />
         <activity android:name=".activity.KotlinActivity" />

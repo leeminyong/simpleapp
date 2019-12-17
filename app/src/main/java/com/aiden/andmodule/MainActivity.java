@@ -17,6 +17,7 @@ import com.aiden.andmodule.activity.DataBindingActivity;
 import com.aiden.andmodule.activity.DialogActivity;
 import com.aiden.andmodule.activity.LiveDataRoomAct;
 import com.aiden.andmodule.activity.OkHttpActivity;
+import com.aiden.andmodule.activity.RetroJsonAct;
 import com.aiden.andmodule.activity.RoomAct;
 import com.aiden.andmodule.activity.RxBindingAct;
 import com.aiden.andmodule.activity.RxJavaActivity;
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         menuNames.add("RxJava");
         menuNames.add("RxBinding");
         menuNames.add("SimpleOKhttp");
+        menuNames.add("JsonRetroift");
 
         ListAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.lable, menuNames);
 
@@ -224,6 +226,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 25:
                         intent = new Intent(MainActivity.this, SimpleOkHttpAct.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        break;
+                    case 26:
+                        intent = new Intent(MainActivity.this, RetroJsonAct.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;
