@@ -1,10 +1,10 @@
 package com.aiden.andmodule.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.aiden.andmodule.LogUtil;
 import com.aiden.andmodule.R;
@@ -18,13 +18,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class OkHttpActivity extends AppCompatActivity {
+public class RxOkHttpAct extends AppCompatActivity {
 
     static  String TAG = "OkHttpActivity";
 
@@ -39,34 +37,6 @@ public class OkHttpActivity extends AppCompatActivity {
 
 
         new HttpAsynTask().execute("https://goo.gl/eIXu9l");
-    }
-/*
-    @Override
-    public void onStart() {
-        super.onStart();
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... voids) {
-                int counter = 0;
-                while (true) {
-                    LogUtil.e("AsyncTask", "count: " + counter);
-                    counter ++;
-                }
-            }
-        }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-    }
-*/
-
-@Override
-    public void onStart() {
-        super.onStart();
-        Observable.fromCallable(() -> {
-            int counter = 0;
-            while (true) {
-                LogUtil.e("RxJava", "count: " + counter);
-                counter ++;
-            }
-        }).subscribeOn(Schedulers.computation()).subscribe();
     }
 
     private  static  class HttpAsynTask extends AsyncTask<String, Void ,String >{

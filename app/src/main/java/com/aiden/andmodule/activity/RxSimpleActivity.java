@@ -50,7 +50,6 @@ public class RxSimpleActivity extends AppCompatActivity {
 
     //param progress result
     public class MyAsyncTask extends AsyncTask<String,Void,String> {
-
         @Override
         protected String doInBackground(String... params) {
             StringBuilder word=new StringBuilder();

@@ -1,49 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_default_bg_white"
+    >
+    <ImageView
+        android:id="@+id/iv1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@color/list_select"
+        app:layout_constraintBottom_toTopOf="@id/iv2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/color_default_bg_white"
+    <ImageView
+        android:id="@+id/iv2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@android:color/holo_red_dark"
+        app:layout_constraintBottom_toTopOf="@id/iv3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv1" />
 
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
-        <ImageView
-            app:layout_constraintVertical_chainStyle="packed"
-            android:id="@+id/iv1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/iv2"
-            android:background="@color/list_select"/>
-        <ImageView
-            android:id="@+id/iv2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv1"
-            app:layout_constraintBottom_toTopOf="@id/iv3"
-            android:background="@android:color/holo_red_dark"/>
-        <ImageView
-            android:id="@+id/iv3"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv2"
-            app:layout_constraintBottom_toTopOf="@id/iv4"
-            android:background="@android:color/holo_blue_bright"/>
-        <ImageView
-            android:id="@+id/iv4"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@color/color_default_bg_orange"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/iv3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@android:color/holo_blue_bright"
+        app:layout_constraintBottom_toTopOf="@id/iv4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv2" />
+
+    <ImageView
+        android:id="@+id/iv3_1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="80dp"
+        android:background="@android:color/holo_red_dark"
+        app:layout_constraintLeft_toRightOf="@+id/iv3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv3" />
+
+
+    <ImageView
+        android:id="@+id/iv2_1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/iv3_2"
+        app:layout_constraintStart_toStartOf="@+id/iv3_2"
+        android:background="@color/list_select"
+        />
+    <ImageView
+        android:id="@+id/iv3_2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@color/color_default_bg_orange"
+        app:layout_constraintLeft_toRightOf="@+id/iv3_1"
+        app:layout_constraintTop_toTopOf="@+id/iv3_1" />
+
+    <ImageView
+        android:id="@+id/iv4_1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@android:color/holo_blue_bright"
+        app:layout_constraintStart_toStartOf="@+id/iv3_2"
+        app:layout_constraintTop_toBottomOf="@+id/iv3_2" />
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintStart_toEndOf="@+id/iv4_1"
+        app:layout_constraintTop_toTopOf="@+id/iv4_1"
+        android:background="@android:color/holo_red_dark"/>
+
+
+    <ImageView
+        android:id="@+id/iv4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@color/color_default_bg_orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv3" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
