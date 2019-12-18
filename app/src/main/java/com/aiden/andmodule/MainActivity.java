@@ -22,6 +22,7 @@ import com.aiden.andmodule.activity.RoomAct;
 import com.aiden.andmodule.activity.RxBindingAct;
 import com.aiden.andmodule.activity.RxJavaActivity;
 import com.aiden.andmodule.activity.SimpleOkHttpAct;
+import com.aiden.andmodule.activity.TTSActivity;
 import com.aiden.andmodule.activity.TabHostActivity;
 import com.aiden.andmodule.activity.GroupBtnActivity;
 import com.aiden.andmodule.activity.ImvocaActivity;
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         menuNames.add("RxBinding");
         menuNames.add("SimpleOKhttp");
         menuNames.add("JsonRetroift");
+        menuNames.add("TTS Test");
 
         ListAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.lable, menuNames);
 
@@ -231,6 +233,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 26:
                         intent = new Intent(MainActivity.this, RetroJsonAct.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        break;
+                      //TTSActivity
+                    case 27:
+                        intent = new Intent(MainActivity.this, TTSActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;
