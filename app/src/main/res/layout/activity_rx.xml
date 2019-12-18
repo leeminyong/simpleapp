@@ -15,6 +15,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World"/>
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World_2"/>
+    <TextView
+        android:id="@+id/txt3"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World_3"/>
 
     <Button
         android:layout_width="wrap_content"

@@ -17,14 +17,16 @@ public class RxSimpleActivity extends AppCompatActivity {
 
     private Observable<String> mObservable;
     private Observer<String> mOnserver;
-    TextView txt;
+    TextView txt,txt2,txt3;
     MyAsyncTask myAsyncTask;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rx);
         txt = findViewById(R.id.txt);
-
+        txt2 = findViewById(R.id.txt2);
+        txt3 = findViewById(R.id.txt3);
+        //just: 데이터 발행
         mObservable = Observable.just("Hello from Rxandroid....");
         mOnserver = new Observer<String>() {
             @Override
@@ -32,20 +34,25 @@ public class RxSimpleActivity extends AppCompatActivity {
             @Override
             public void onNext(String s) {
                  txt.setText(s);
+                txt2.setText(s);
+                txt3.setText(s);
             }
             @Override
             public void onError(Throwable e) { }
             @Override
-            public void onComplete() { }
+            public void onComplete() {
+
+            }
         };
 
     }
 
     public void subscribeNow(View view) {
-        //mObservable.subscribe(mOnserver);
+        mObservable.subscribe(mOnserver);
+        /*
         myAsyncTask=new MyAsyncTask();
         myAsyncTask.execute("Hello","async","world");
-
+*/
     }
 
     //param progress result
