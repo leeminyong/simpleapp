@@ -42,16 +42,14 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     String TAG = "MainActivity";
+    //2020.01.03
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         List<String> menuNames;
         LogUtil.e(TAG,"onCreate..");
-
-
             // 데이터 준비
-
         menuNames = new ArrayList<String>();
         menuNames.add("Groupbtn");
         menuNames.add("BottomSheetDialog");
@@ -83,17 +81,12 @@ public class MainActivity extends AppCompatActivity {
         menuNames.add("TTS Test");
 
         ListAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.lable, menuNames);
-
-
         // 어댑터를 설정
         GridView gridView = findViewById(R.id.gridview);
         gridView.setAdapter(adapter);
-
         // 항목 클릭시 위치값과 값 토스트로 출력
         gridView.setOnItemClickListener((parent, view, position, id) -> {
-
-
-                Intent intent = null;
+            Intent intent = null;
                 switch (position){
                     case 0:
                         intent = new Intent(MainActivity.this, GroupBtnActivity.class);
@@ -120,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;
-
                     case 5:
                         intent = new Intent(MainActivity.this, ToogleActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -141,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;
-
                     case 9:
                         intent = new Intent(MainActivity.this, ListViewActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
