@@ -7,7 +7,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import io.reactivex.disposables.CompositeDisposable
 
 /**
- * Created by admin on 2017-10-17.
+ * 2020.01.03... start 
  */
 open class BaseActivity : AppCompatActivity(),LifecycleOwner{
     protected val disposables by lazy { CompositeDisposable() }
