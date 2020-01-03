@@ -7,7 +7,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import io.reactivex.disposables.CompositeDisposable
 
 /**
- * 2020.01.03... start 
+ * 2020.01.03... start
  */
 open class BaseActivity : AppCompatActivity(),LifecycleOwner{
     protected val disposables by lazy { CompositeDisposable() }
