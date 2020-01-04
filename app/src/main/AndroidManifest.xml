@@ -8,12 +8,13 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requiredForAllUsers="true"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:usesCleartextTraffic="true"
-        android:requiredForAllUsers="false"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activity.RxBindingAct"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".activity.TTSActivity"></activity>
+        <activity android:name=".activity.RxBindingAct" />
         <activity android:name=".activity.RxJavaActivity" />
         <activity
             android:name=".activity.RoomAct"
@@ -27,12 +28,12 @@
         <activity
             android:name=".activity.OkHttpActivity"
             android:label="OkHttp" />
-        <activity android:name=".activity.SimpleOkHttpAct"
-            android:label="SimpleOKhttp"
-            />
-        <activity android:name=".activity.RetroJsonAct"
-            android:label="SimpleOKhttp"
-            />
+        <activity
+            android:name=".activity.SimpleOkHttpAct"
+            android:label="SimpleOKhttp" />
+        <activity
+            android:name=".activity.RetroJsonAct"
+            android:label="SimpleOKhttp" />
         <activity android:name=".activity.VMLDbindActivity" />
         <activity android:name=".activity.DialogActivity" />
         <activity android:name=".activity.KotlinActivity" />
@@ -57,6 +58,12 @@
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".activity.GridviewActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="sensor"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".activity.BottomSheetActivity"

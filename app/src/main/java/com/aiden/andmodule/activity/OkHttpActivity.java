@@ -60,6 +60,7 @@ public class OkHttpActivity extends AppCompatActivity {
 @Override
     public void onStart() {
         super.onStart();
+        /*
         Observable.fromCallable(() -> {
             int counter = 0;
             while (true) {
@@ -67,6 +68,8 @@ public class OkHttpActivity extends AppCompatActivity {
                 counter ++;
             }
         }).subscribeOn(Schedulers.computation()).subscribe();
+
+        */
     }
 
     private  static  class HttpAsynTask extends AsyncTask<String, Void ,String >{

@@ -49,7 +49,6 @@ public class ListViewAdapter extends BaseAdapter {
         iconImageView.setImageDrawable(listViewItem.getIcon());
         titleTextView.setText(listViewItem.getTitle());
         descTextView.setText(listViewItem.getDesc());
-
         if(mSelectedPostion == position){
             //LogUtil.e(TAG,"pos--->"+position);
             convertView.setBackgroundColor(Color.YELLOW);
