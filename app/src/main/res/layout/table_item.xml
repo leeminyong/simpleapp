@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/table_layout_1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+    <ImageView
+        android:background="@drawable/cartoon_1"
+        android:id="@+id/chapter_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:orientation="horizontal" >
+    </ImageView>
+    <ImageView
+        android:id="@+id/chapter_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_margin="3dip"
+        android:background="@drawable/stage_ing_num01" />
+     <ImageView
+        android:background="@drawable/cartoon_gray"
+        android:id="@+id/cartoon_gray"              
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dip"
+        android:visibility="invisible"
+        android:orientation="horizontal" >
+    </ImageView>
+
+        <ImageView
+        android:background="@drawable/cartoon_outln_on"
+        android:id="@+id/chapter_img2"              
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_margin="4dip"
+        android:orientation="horizontal" >
+    </ImageView>
+       <TextView
+        android:id="@+id/stage_unlock_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+		android:textColor="@color/stage1TextColor"
+        android:layout_marginTop="82dp"
+        android:text="Day1 채용"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

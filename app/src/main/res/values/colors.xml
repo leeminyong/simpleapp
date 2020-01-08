@@ -10,7 +10,7 @@
     <color name="color_default_text_white">#FFFFFF</color>
     <color name="whiteGray_text">#707070</color>
     <color name="background">#2F3B46</color>
-
+    <color name="stage1TextColor">#52628f</color>
     <color name="stats_count_color">#1e2730</color>
     <color name="stats_dayTime_color">#5b6167</color>
     <color name="stats_totalTime_color">#333333</color>

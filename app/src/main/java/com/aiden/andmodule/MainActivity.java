@@ -18,6 +18,7 @@ import com.aiden.andmodule.activity.DialogActivity;
 import com.aiden.andmodule.activity.GridviewActivity;
 import com.aiden.andmodule.activity.LiveDataRoomAct;
 import com.aiden.andmodule.activity.OkHttpActivity;
+import com.aiden.andmodule.activity.RecycleGridAct;
 import com.aiden.andmodule.activity.RetroJsonAct;
 import com.aiden.andmodule.activity.RoomAct;
 import com.aiden.andmodule.activity.RxBindingAct;
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         menuNames.add("JsonRetroift");
         menuNames.add("TTS Test");
         menuNames.add("GridView");
+        menuNames.add("RecyclerGrid");
 
         ListAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.lable, menuNames);
         // 어댑터를 설정
@@ -238,6 +240,12 @@ public class MainActivity extends AppCompatActivity {
                     //GridviewActivity
                     case 28:
                         intent = new Intent(MainActivity.this, GridviewActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        break;
+                    //RecycleGridAct
+                    case 29:
+                        intent = new Intent(MainActivity.this, RecycleGridAct.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;

@@ -30,6 +30,8 @@ android {
 }
 
 dependencies {
+
+    implementation 'com.jakewharton:butterknife:10.0.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.google.firebase:firebase-core:17.2.1'

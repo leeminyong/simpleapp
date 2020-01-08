@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.TTSActivity"></activity>
+        <activity android:name=".activity.TTSActivity"/>
         <activity android:name=".activity.RxBindingAct" />
         <activity android:name=".activity.RxJavaActivity" />
         <activity
@@ -25,6 +25,10 @@
         <activity
             android:name=".activity.ViewModelActivity"
             android:label="ViewModel" />
+                        <activity
+            android:name=".activity.RecycleGridAct"
+            android:screenOrientation="sensor"
+            android:label="RecycleGridAct" />
         <activity
             android:name=".activity.OkHttpActivity"
             android:label="OkHttp" />
