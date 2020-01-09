@@ -5,6 +5,7 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.aiden.andmodule.LogUtil;
 import com.aiden.andmodule.R;
 import com.aiden.andmodule.widget.GridViewPager;
 import com.aiden.andmodule.widget.Model;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GridviewActivity extends AppCompatActivity {
+
+    String TAG = "GridviewActivity";
 
     private String[] titles = {"DAY01 채용", "DAY02 법률", "DAY03 사무(1)", "DAY04 사무(2)", "DAY05 사무(3)", "DAY06 공동체",
             "DAY07 마케팅", "DAY09 경제", "DAY10 쇼핑", "DAY11 제품개발","DAY12 생산", "DAY13 고객서비스", "DAY14 공항", "DAY15 계약",
@@ -24,6 +27,8 @@ public class GridviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gridview);
         GridViewPager mGridViewPager = findViewById(R.id.mGridViewPager);
+
+        LogUtil.e(TAG,"onCreate 호출.........");
         //데이터 소스를 초기화
         mGridViewPager
                 //각 페이지의 용량 설정

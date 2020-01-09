@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/table_layout_1"
+    android:padding="5dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
@@ -24,7 +25,7 @@
         android:id="@+id/cartoon_gray"              
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="4dip"
+        android:layout_margin="4dp"
         android:visibility="invisible"
         android:orientation="horizontal" >
     </ImageView>
@@ -39,12 +40,12 @@
         android:orientation="horizontal" >
     </ImageView>
        <TextView
-        android:id="@+id/stage_unlock_icon"
+        android:id="@+id/txt_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
 		android:textColor="@color/stage1TextColor"
-        android:layout_marginTop="82dp"
+        android:layout_marginTop="87dp"
         android:text="Day1 채용"
         android:textSize="14sp"
         android:textStyle="bold" />

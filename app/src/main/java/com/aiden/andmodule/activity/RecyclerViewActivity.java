@@ -1,5 +1,6 @@
 package com.aiden.andmodule.activity;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,6 +33,22 @@ public class RecyclerViewActivity extends AppCompatActivity implements StdRecycl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.custom_recyclerview);
         init();
+    }
+
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        LogUtil.e(TAG,"회전값--->"+newConfig.orientation);
+
+        if (newConfig.orientation == newConfig.ORIENTATION_PORTRAIT) // 세로 전환시
+
+        {
+            LogUtil.e(TAG,"세로:    Portrait");
+        }
+        else if (newConfig.orientation == newConfig.ORIENTATION_LANDSCAPE)// 가로 전환시
+
+        {
+            LogUtil.e(TAG,"가로:      landscape");
+        }
     }
 
     private void init(){

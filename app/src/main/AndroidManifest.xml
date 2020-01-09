@@ -25,10 +25,7 @@
         <activity
             android:name=".activity.ViewModelActivity"
             android:label="ViewModel" />
-                        <activity
-            android:name=".activity.RecycleGridAct"
-            android:screenOrientation="sensor"
-            android:label="RecycleGridAct" />
+
         <activity
             android:name=".activity.OkHttpActivity"
             android:label="OkHttp" />
@@ -63,12 +60,7 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".activity.GridviewActivity"
-            android:label="@string/app_name"
-            android:launchMode="singleTop"
-            android:screenOrientation="sensor"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
+
         <activity
             android:name=".activity.BottomSheetActivity"
             android:label="@string/app_name"
@@ -117,6 +109,19 @@
             android:name=".activity.MultiDelListActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".activity.RecycleGridAct"
+            android:screenOrientation="sensor"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="RecycleGridAct" />
+        <activity
+            android:name=".activity.GridviewActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="sensor"
+
+            android:configChanges="orientation|keyboardHidden"
+
             android:windowSoftInputMode="stateHidden|adjustPan" />
     </application>
 
