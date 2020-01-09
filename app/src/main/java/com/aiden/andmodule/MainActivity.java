@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         menuNames.add("JsonRetroift");
         menuNames.add("TTS Test");
         menuNames.add("GridView");
+        //20.01.09
         menuNames.add("RecyclerGrid");
 
         ListAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.lable, menuNames);
