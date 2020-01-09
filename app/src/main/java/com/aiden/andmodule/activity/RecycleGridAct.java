@@ -3,6 +3,7 @@ package com.aiden.andmodule.activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -22,6 +23,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.aiden.andmodule.LogUtil;
 import com.aiden.andmodule.R;
+import com.aiden.andmodule.model.Model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class RecycleGridAct extends AppCompatActivity {
@@ -33,12 +38,14 @@ public class RecycleGridAct extends AppCompatActivity {
     int orient;
     android.content.res.Configuration  mConfig;
     int mNoOfColumns;
+    private List<Model> mModelList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gridview_main);
          mNoOfColumns = calculateNoOfColumns(getApplicationContext(),120);
         recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
 
     }
 
@@ -46,7 +53,7 @@ public class RecycleGridAct extends AppCompatActivity {
 
 
         recyclerView.setLayoutManager(new GridLayoutManager(this, spancount));
-        recyclerView.setAdapter(new MyAdapter(RecycleGridAct.this, day_img, day_num, dayTitleList));
+        recyclerView.setAdapter(new MyAdapter(RecycleGridAct.this, day_img, day_num, dayTitleList,getListData()));
 
     }
 
@@ -95,6 +102,14 @@ public class RecycleGridAct extends AppCompatActivity {
         setupGridRecyclerView(spancount);
         LogUtil.e(TAG,"onResume........--->"+mConfig.orientation);
 
+        String text = "";
+        for (Model model : mModelList) {
+            if (model.isSelected()) {
+                text += model.getText();
+            }
+        }
+        LogUtil.e(TAG,"Output : " + text);
+
     }
 
     @Override
@@ -133,19 +148,31 @@ public class RecycleGridAct extends AppCompatActivity {
 
     };
 
+    private List<Model> getListData() {
+        mModelList = new ArrayList<>();
+        for (int i = 1; i <= 30; i++) {
+            mModelList.add(new Model("TextView " + i));
+        }
+        return mModelList;
+    }
+
 
     class MyAdapter extends RecyclerView.Adapter<MyHolder> {
-
+        private int lastSelectedPosition = -1;  // declare this variable
+        private List<Model> mModelList;
         private Context context;
         private int imags[];
         private int imags_nums[];
         private String names[];
 
-        public MyAdapter(Context context, int[] images, int[] imags_nums, String[] names) {
+
+
+        public MyAdapter(Context context, int[] images, int[] imags_nums, String[] names,List<Model> modelList) {
             this.context = context;
             this.imags = images;
             this.imags_nums = imags_nums;
             this.names = names;
+            this.mModelList = modelList;
         }
 
         @NonNull
@@ -156,17 +183,50 @@ public class RecycleGridAct extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(@NonNull MyHolder holder, int position) {
+        public void onBindViewHolder( MyHolder holder, int position) {
+            final Model model = mModelList.get(position);
             holder.img.setImageResource(imags[position]);
             holder.img_num.setImageResource(imags_nums[position]);
             holder.title.setText(dayTitleList[position]);
+            holder.view.setBackgroundColor(model.isSelected() ? Color.CYAN : Color.WHITE);
+            /*
+            holder.img.setOnClickListener(v -> {
+                if(lastSelectedPosition > 0) {
+                    mModelList.get(lastSelectedPosition).setSelected(false);
+                }
+                Log.e("test","click--->"+(position+1));
+                //Toast.makeText(context, ""+(position+1), Toast.LENGTH_LONG).show();
+                model.setSelected(!model.isSelected());
+                //  holder.itemView.setBackgroundColor(model.isSelected() ? R.drawable.cartoon_outln_on : Color.WHITE);
+                holder.itemView.setBackgroundColor(model.isSelected() ? Color.CYAN : Color.WHITE);
+                lastSelectedPosition = holder.getAdapterPosition();
+
+            });
+            */
+            holder.img.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // check whether you selected an item
+
+                    if(lastSelectedPosition > 0) {
+                        mModelList.get(lastSelectedPosition).setSelected(false);
+                    }
+
+                    model.setSelected(!model.isSelected());
+                    holder.view.setBackgroundColor(model.isSelected() ? Color.CYAN : Color.WHITE);
+
+                    // store last selected item position
+
+                    lastSelectedPosition = holder.getAdapterPosition();
+                }
+            });
 
 
         }
 
         @Override
         public int getItemCount() {
-            return names.length;
+            return mModelList == null ? 0 : mModelList.size();
         }
     }
 
@@ -175,6 +235,7 @@ public class RecycleGridAct extends AppCompatActivity {
         ImageView img;
         ImageView img_num;
         TextView title;
+        View view;
 
         public MyHolder(@NonNull View itemView) {
 
@@ -182,6 +243,7 @@ public class RecycleGridAct extends AppCompatActivity {
             img = itemView.findViewById(R.id.chapter_img);
             img_num = itemView.findViewById(R.id.chapter_no);
             title = itemView.findViewById(R.id.txt_title);
+            view = itemView;
 
         }
     }
