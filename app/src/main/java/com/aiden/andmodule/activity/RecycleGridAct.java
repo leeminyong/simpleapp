@@ -50,6 +50,7 @@ public class RecycleGridAct extends AppCompatActivity {
 
     }
 
+    //2020.01.09 18.42
     public static int calculateNoOfColumns(Context context, float columnWidthDp) { // For example columnWidthdp=180
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         float screenWidthDp = displayMetrics.widthPixels / displayMetrics.density;
