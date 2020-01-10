@@ -27,6 +27,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements StdRecycl
 
     RecyclerView recyclerView;
     StdRecyclerAdapter mAdapter;
+    //20.01.10
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
