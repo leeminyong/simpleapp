@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category_array">
+        <item>제안문의</item>
+        <item>오류문의</item>
+        <item>불편문의</item>
+    </string-array>
+
+    <string-array name="email_array">
+        <item>naver.com</item>
+        <item>daum.net</item>
+        <item>gmail.com</item>
+        <item>직접입력</item>
+    </string-array>
+
+    <string-array name="upload_array">
+        <item>사진 촬영</item>
+        <item>동영상 촬영</item>
+        <item>파일 첨부</item>
+    </string-array>
+
+    <string-array name="age_array">
+        <item>10대</item>
+        <item>20대</item>
+        <item>30대</item>
+        <item>40대</item>
+        <item>50대 이상</item>
+    </string-array>
+
+    <string-array name="purpose_array">
+        <item>취업&amp;승진</item>
+        <item>자기계발</item>
+        <item>유학</item>
+        <item>자녀교육</item>
+    </string-array>
+
+    <string-array name="range_array">
+        <item>3개월</item>
+        <item>6개월</item>
+        <item>1년 이상</item>
+        <item>모르겠음</item>
+    </string-array>
+
+    <string-array name="font_size_array">
+        <item>보통</item>
+        <item>크게</item>
+    </string-array>
+
+    <string-array name="word_interval_array">
+        <item>보통</item>
+        <item>넓게</item>
+    </string-array>
+
+    <string-array name="listening_count_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>재생하지 않음</item>
+    </string-array>
+
+    <string-array name="set_count_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>∞</item>
+    </string-array>
+
+
+    <string-array name="player_rate_array">
+        <item>1.0</item>
+        <item>1.2</item>
+        <item>1.4</item>
+    </string-array>
+
+    <string-array name="sel_days">
+        <item>DAY1 채용</item>
+        <item>Day2 규칙∙법률</item>
+        <item>DAY3 일반사무(1)</item>
+        <item>DAY4 일반사무(2)</item>
+        <item>DAY5 일반사무(3)</item>
+        <item>DAY6 여가∙공동체</item>
+        <item>DAY7 마케팅(1)</item>
+        <item>DAY8 마케팅(2)</item>
+        <item>DAY9 경제</item>
+        <item>DAY10 쇼핑</item>
+        <item>DAY11 제품개발</item>
+        <item>DAY12 생산</item>
+        <item>DAY13 고객서비스</item>
+        <item>DAY14 여행∙공항</item>
+        <item>DAY15 계약</item>
+        <item>DAY16 상거래</item>
+        <item>DAY17 무역∙배송</item>
+        <item>DAY18 숙박∙식당</item>
+        <item>DAY19 수익</item>
+        <item>DAY20 회계</item>
+        <item>DAY21 회사동향</item>
+        <item>DAY22 미팅</item>
+        <item>DAY23 사원복지</item>
+        <item>DAY24 인사이동</item>
+        <item>DAY25 교통</item>
+        <item>DAY26 은행</item>
+        <item>DAY27 투자</item>
+        <item>DAY28 건물∙주택</item>
+        <item>DAY29 환경</item>
+        <item>DAY30 건강</item>
+    </string-array>
+
+    <string-array name="word_sort_array">
+        <item>DAY순 정렬</item>
+        <item>최신순 정렬</item>
+    </string-array>
+    <string-array name="my_sort_array">
+        <item>번호순 정렬</item>
+        <item>abc순 정렬</item>
+    </string-array>
+
+
+
+    <string-array name="matching_count_array">
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+    </string-array>
+
+    <string-array name="buble_count_array">
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+    </string-array>
+
+    <string-array name="day_type_1_array">
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+    </string-array>
+
+    <string-array name="day_type_2_array">
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+    </string-array>
+
+    <string-array name="day_type_3_array">
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+    </string-array>
+
+    <string-array name="word_list_array">
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+    </string-array>
+
+
+
+    <string-array name="answer_num_array">
+        <item>①</item>
+        <item>②</item>
+        <item>③</item>
+        <item>④</item>
+        <item>⑤</item>
+        <item>⑥</item>
+        <item>⑦</item>
+        <item>⑧</item>
+        <item>⑨</item>
+        <item>⑩</item>
+        <item>⑪</item>
+        <item>⑫</item>
+        <item>⑬</item>
+        <item>⑭</item>
+        <item>⑮</item>
+    </string-array>
+
+</resources>

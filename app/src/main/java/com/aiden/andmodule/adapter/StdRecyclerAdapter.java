@@ -20,9 +20,7 @@ public class StdRecyclerAdapter extends RecyclerView.Adapter<StdRecyclerAdapter.
 
     String TAG = "StdRecyclerAdapter";
 
-    public interface OnListItemLongSelectedInterface {
-        void onItemLongSelected(View v, int position);
-    }
+
 
     public interface OnListItemSelectedInterface {
         void onItemSelected(View v, int position);
@@ -30,6 +28,10 @@ public class StdRecyclerAdapter extends RecyclerView.Adapter<StdRecyclerAdapter.
 
     private OnListItemSelectedInterface mListener;
     private OnListItemLongSelectedInterface mLongListener;
+
+    public interface OnListItemLongSelectedInterface {
+        void onItemLongSelected(View v, int position);
+    }
 
 
     private SparseBooleanArray mSelectedItems = new SparseBooleanArray(0);
