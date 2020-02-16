@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activity.DataBindingAct"></activity>
         <activity android:name=".activity.TTSActivity"/>
         <activity android:name=".activity.RxBindingAct" />
         <activity android:name=".activity.RxJavaActivity" />

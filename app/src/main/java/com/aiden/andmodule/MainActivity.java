@@ -13,6 +13,7 @@ import com.aiden.andmodule.activity.ButtonActivity;
 import com.aiden.andmodule.activity.ConstLayout;
 import com.aiden.andmodule.activity.CustomListviewActivity;
 import com.aiden.andmodule.activity.DBRecyclerActivity;
+import com.aiden.andmodule.activity.DataBindingAct;
 import com.aiden.andmodule.activity.DataBindingActivity;
 import com.aiden.andmodule.activity.DialogActivity;
 import com.aiden.andmodule.activity.GridviewActivity;
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         menuNames.add("GridView");
         //20.01.09
         menuNames.add("RecyclerGrid");
+        menuNames.add("DataBinding");
 
         ListAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.lable, menuNames);
         // 어댑터를 설정
@@ -247,6 +249,12 @@ public class MainActivity extends AppCompatActivity {
                     //RecycleGridAct
                     case 29:
                         intent = new Intent(MainActivity.this, RecycleGridAct.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        break;
+                    //RecycleGridAct
+                    case 30:
+                        intent = new Intent(MainActivity.this, DataBindingAct.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;
