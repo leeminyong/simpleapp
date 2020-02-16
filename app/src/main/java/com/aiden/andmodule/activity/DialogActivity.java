@@ -22,7 +22,7 @@ public class DialogActivity extends AppCompatActivity {
 
     public void onAlert(View view) {
         try{
-            dialog = new DialogBox(this, R.style.AppTheme); //여기서 죽는다.(갤5)
+            dialog = new DialogBox(this, R.style.AppTheme);
             dialog.show();
         }
         catch(Exception ex) {
@@ -38,13 +38,9 @@ public class DialogActivity extends AppCompatActivity {
 
 
             TextView btn_cancel = findViewById(R.id.btn_cancel);
-            btn_cancel.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {dialog.dismiss();	}
-            });
+            btn_cancel.setOnClickListener(v -> dialog.dismiss());
             TextView btn_ok = findViewById(R.id.btn_ok);
-            btn_ok.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {dialog.dismiss();	}
-            });
+            btn_ok.setOnClickListener(v->dialog.dismiss());
 
         }
     }
