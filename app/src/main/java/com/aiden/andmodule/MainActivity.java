@@ -54,36 +54,65 @@ public class MainActivity extends AppCompatActivity {
         LogUtil.e(TAG,"onCreate..");
             // 데이터 준비
         menuNames = new ArrayList<String>();
+        //0.
         menuNames.add("Groupbtn");
+        //1.
         menuNames.add("BottomSheetDialog");
+        //2.
         menuNames.add("DBListview");
+        //3.
         menuNames.add("데이터저장");
+        //4.
         menuNames.add("WebView");
+        //5.
         menuNames.add("Toogle");
+        //6.
         menuNames.add("TabHost");
+        //7.
         menuNames.add("ConsLayout");
+        //8.
         menuNames.add("Databinding");
+        //9.
         menuNames.add("Listview");
+        //10.
         menuNames.add("CustomListview");
+        //11.
         menuNames.add("MultiDelListView");
+        //12.
         menuNames.add("RecyclerView");
+        //13.
         menuNames.add("Imvoca");
+        //14.
         menuNames.add("Rxandroid");
+        //15.
         menuNames.add("Button UI");
+        //16.
         menuNames.add("KotlinTest");
+        //17.
         menuNames.add("DataBinding");
+        //18.
         menuNames.add("DialogBox");
+        //19.
         menuNames.add("OkHttp");
+        //20.
         menuNames.add("Room");
+        //21.
         menuNames.add("LiveDataRoom");
+        //22.
         menuNames.add("ViewModel");
+        //23.
         menuNames.add("RxJava");
+        //24.
         menuNames.add("RxBinding");
+        //25.
         menuNames.add("SimpleOKhttp");
+        //26.
         menuNames.add("JsonRetroift");
+        //27.
         menuNames.add("TTS Test");
+        //28.
         menuNames.add("GridView");
-        //20.01.09
+        //29
         menuNames.add("RecyclerGrid");
         menuNames.add("DataBinding");
 

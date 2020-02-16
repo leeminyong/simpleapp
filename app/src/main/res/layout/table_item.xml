@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/table_layout_1"
-    android:padding="5dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal" >
+    android:orientation="horizontal"
+    android:padding="5dp">
+
     <ImageView
-        android:background="@drawable/cartoon_1"
         android:id="@+id/chapter_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:orientation="horizontal" >
-    </ImageView>
+        android:background="@drawable/cartoon_1"
+        android:orientation="horizontal"
+        android:visibility="visible"/>
+
     <ImageView
         android:id="@+id/chapter_no"
         android:layout_width="wrap_content"
@@ -20,33 +21,34 @@
         android:layout_gravity="left"
         android:layout_margin="3dip"
         android:background="@drawable/stage_ing_num01" />
-     <ImageView
-        android:background="@drawable/cartoon_gray"
-        android:id="@+id/cartoon_gray"              
+
+    <ImageView
+        android:id="@+id/cartoon_gray"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        android:visibility="invisible"
-        android:orientation="horizontal" >
-    </ImageView>
+        android:background="@drawable/cartoon_gray"
+        android:orientation="horizontal"
+        android:visibility="invisible"/>
 
-        <ImageView
-        android:background="@drawable/cartoon_outln_on"
-        android:id="@+id/chapter_img2"              
+    <ImageView
+        android:id="@+id/chapter_img2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
         android:layout_margin="4dip"
-        android:orientation="horizontal" >
-    </ImageView>
-       <TextView
+        android:background="@drawable/cartoon_outln_on"
+        android:orientation="horizontal"
+        android:visibility="invisible"/>
+
+    <TextView
         android:id="@+id/txt_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-		android:textColor="@color/stage1TextColor"
         android:layout_marginTop="87dp"
         android:text="Day1 채용"
+        android:textAlignment="center"
+        android:textColor="@color/stage1TextColor"
         android:textSize="14sp"
         android:textStyle="bold" />
 

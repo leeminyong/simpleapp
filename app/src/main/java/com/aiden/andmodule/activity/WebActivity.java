@@ -56,12 +56,9 @@ public class WebActivity extends AppCompatActivity {
         // WebView의 설정
       webView.setWebChromeClient(new CustomWebChromelient());
       webView.setWebViewClient(new CustomWebViewClient());
-
-
     }
 
     public void LoadWeb() {
-
         webView = (WebView) findViewById(R.id.web_veiw);
         WebSettings set = webView.getSettings();
         webView.getSettings().setJavaScriptEnabled(true);
@@ -87,6 +84,8 @@ public class WebActivity extends AppCompatActivity {
         }
     }
 
+
+
     //key down
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -102,23 +101,18 @@ public class WebActivity extends AppCompatActivity {
             new AlertDialog.Builder(this)
                     .setTitle("프로그램 종료")
                     .setMessage("프로그램을 종료하시겠습니까?")
-                    .setPositiveButton("예", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            android.os.Process.killProcess(android.os.Process.myPid());
-                        }
-                    })
+                    .setPositiveButton("예", (dialog, which) -> android.os.Process.killProcess(android.os.Process.myPid()))
                     .setNegativeButton("아니오", null).show();
         }
         return super.onKeyDown(keyCode, event);
     }
+
 
     @Override
     protected void onResume() {
         super.onResume();
         callHiddenWebViewMethod("onResume");
     }
-
     private void callHiddenWebViewMethod(String name) {
         if (webView != null) {
             try {
@@ -135,56 +129,40 @@ public class WebActivity extends AppCompatActivity {
             }
         }
     }
-
     protected class CustomWebChromelient extends WebChromeClient {
         @Override
         public boolean onJsAlert(WebView view, String url, String message, final JsResult result) {
             new android.app.AlertDialog.Builder(WebActivity.this).setTitle("")
                     .setMessage(message)
                     .setPositiveButton(android.R.string.ok,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    result.confirm();
-                                }
-                            }).setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    result.cancel();
-                }
-            }).setCancelable(false).create().show();
+                            (dialog, which) -> result.confirm()).setNegativeButton(android.R.string.cancel,
+                            (dialog, which) -> result.cancel()).setCancelable(false).create().show();
             return true;
         }
 
         @Override
         public boolean onJsConfirm(WebView view, String url, String message, final JsResult result) {
-
-
             new android.app.AlertDialog.Builder(WebActivity.this)
                     .setTitle("")
                     .setMessage(message)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            result.confirm();
-                        }
-                    }).setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    result.cancel();
-                }
-            }).setCancelable(false).create().show();
+                    .setPositiveButton(android.R.string.ok,
+                            (dialog, which) -> result.confirm()).setNegativeButton(android.R.string.cancel,
+                            (dialog, which) -> result.cancel()).setCancelable(false).create().show();
 
-            return true;
+                    return true;
         }
 
-        String userAgent;
+  String userAgent;
 
-        @Override
-        public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
+   @Override
+   public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {
             WebView newWebView = new WebView(WebActivity.this);
             WebSettings webSettings = newWebView.getSettings();
             webSettings.setJavaScriptEnabled(true);
-
             final Dialog dialog = new Dialog(WebActivity.this);
             dialog.setContentView(newWebView);
             dialog.show();
+
 
             userAgent = newWebView.getSettings().getUserAgentString();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -210,15 +188,13 @@ public class WebActivity extends AppCompatActivity {
             });
             return true;
         }
-
     }
+
 
     // 14.10.24
     protected class CustomWebViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            // TODO Auto-generated method stub
-
             LogUtil.e(TAG, "(WebViewClient)should ---->" + url);
             return  false;
         }
@@ -230,8 +206,7 @@ public class WebActivity extends AppCompatActivity {
         public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
             webView.loadUrl("file:///android_asset/error.html");
         }
-        public void onLoadResource(WebView view, String url) { //Doesn't work
-            //swipe.setRefreshing(true);
+        public void onLoadResource(WebView view, String url) {
         }
         public void onPageFinished(WebView view, String url) {
             //Hide the SwipeReefreshLayout
@@ -239,5 +214,4 @@ public class WebActivity extends AppCompatActivity {
             swipe.setRefreshing(false);
         }
     }
-
 }

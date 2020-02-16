@@ -3,28 +3,23 @@ package com.aiden.andmodule.activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.aiden.andmodule.LogUtil;
 import com.aiden.andmodule.R;
+import com.aiden.andmodule.adapter.MyAdapter;
 
 
-public class RecycleGridAct extends AppCompatActivity {
+
+public class RecycleGridAct extends AppCompatActivity implements  MyAdapter.OnListItemSelectedInterface{
 
     String TAG = "RecycleGridAct";
     RecyclerView recyclerView;
@@ -33,24 +28,25 @@ public class RecycleGridAct extends AppCompatActivity {
     int orient;
     android.content.res.Configuration  mConfig;
     int mNoOfColumns;
+
+    MyAdapter mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gridview_main);
-         mNoOfColumns = calculateNoOfColumns(getApplicationContext(),120);
+        mNoOfColumns = calculateNoOfColumns(getApplicationContext(),120);
         recyclerView = findViewById(R.id.recyclerView);
 
     }
-
     private void setupGridRecyclerView(int spancount) {
 
-
+        Resources res = getResources();
         recyclerView.setLayoutManager(new GridLayoutManager(this, spancount));
-        recyclerView.setAdapter(new MyAdapter(RecycleGridAct.this, day_img, day_num, dayTitleList));
 
+        mAdapter = new MyAdapter(this, day_img, day_num, res.getStringArray(R.array.sel_days),this);
+        recyclerView.setAdapter(mAdapter);
     }
 
-    //2020.01.09 18.42
     public static int calculateNoOfColumns(Context context, float columnWidthDp) { // For example columnWidthdp=180
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         float screenWidthDp = displayMetrics.widthPixels / displayMetrics.density;
@@ -105,14 +101,7 @@ public class RecycleGridAct extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
     }
 
-    private String dayTitleList[] = {
-            "DAY01 채용", "Day2 규칙∙법률 ", "DAY03 일반사무(1)", "DAY04 일반사무(2)", "DAY05 일반사무(3)",
-            "DAY6 여가∙공동체", "DAY7 마케팅(1)", "DAY8 마케팅(2)", "DAY9 경제", "DAY10 쇼핑",
-            "DAY11 제품개발", "DAY12 생산", "DAY13 고객서비스", "DAY14 여행∙공항", "DAY15 계약",
-            "DAY16 상거래", "DAY17 무역∙배송", "DAY18 숙박∙식당", "DAY19 수익", "DAY20 회계",
-            "DAY21 회사동향", "DAY22 미팅", "DAY23 사원복지", "DAY24 인사이동", "DAY25 교통",
-            "DAY26 은행", "DAY27 투자", "DAY28 건물∙주택", "DAY29 환경", "DAY30 건강",
-    };
+
 
     private int day_img[] = {
             R.drawable.cartoon_1, R.drawable.cartoon_2, R.drawable.cartoon_3, R.drawable.cartoon_4, R.drawable.cartoon_5,
@@ -134,55 +123,10 @@ public class RecycleGridAct extends AppCompatActivity {
     };
 
 
-    class MyAdapter extends RecyclerView.Adapter<MyHolder> {
+    @Override
+    public void onItemSelected(View v, int position) {
+        LogUtil.e(TAG,"선택한것--->"+position);
+        LogUtil.e(TAG,"남은   갯수--->"+mAdapter.getCountItem());
 
-        private Context context;
-        private int imags[];
-        private int imags_nums[];
-        private String names[];
-
-        public MyAdapter(Context context, int[] images, int[] imags_nums, String[] names) {
-            this.context = context;
-            this.imags = images;
-            this.imags_nums = imags_nums;
-            this.names = names;
-        }
-
-        @NonNull
-        @Override
-        public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-            return new MyHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.table_item, parent, false));
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-            holder.img.setImageResource(imags[position]);
-            holder.img_num.setImageResource(imags_nums[position]);
-            holder.title.setText(dayTitleList[position]);
-
-
-        }
-
-        @Override
-        public int getItemCount() {
-            return names.length;
-        }
-    }
-
-    public static class MyHolder extends RecyclerView.ViewHolder {
-
-        ImageView img;
-        ImageView img_num;
-        TextView title;
-
-        public MyHolder(@NonNull View itemView) {
-
-            super(itemView);
-            img = itemView.findViewById(R.id.chapter_img);
-            img_num = itemView.findViewById(R.id.chapter_no);
-            title = itemView.findViewById(R.id.txt_title);
-
-        }
     }
 }
