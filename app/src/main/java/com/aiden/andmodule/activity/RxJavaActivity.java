@@ -18,7 +18,7 @@ import io.reactivex.internal.operators.parallel.ParallelDoOnNextTry;
 
 public class RxJavaActivity extends AppCompatActivity {
 
-    String TAG = "LiveDataRoom";
+    String TAG = "RxJavaActivity";
 
     Observable<String> mObservable;
     Observer<String> mObserver;

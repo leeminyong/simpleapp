@@ -55,66 +55,66 @@ public class MainActivity extends AppCompatActivity {
             // 데이터 준비
         menuNames = new ArrayList<String>();
         //0.
-        menuNames.add("Groupbtn");
+        menuNames.add("0.Groupbtn");
         //1.
-        menuNames.add("BottomSheetDialog");
+        menuNames.add("1.BottomSheetDialog");
         //2.
-        menuNames.add("DBListview");
+        menuNames.add("2.DBListview");
         //3.
-        menuNames.add("데이터저장");
+        menuNames.add("3.데이터저장");
         //4.
-        menuNames.add("WebView");
+        menuNames.add("4.WebView");
         //5.
-        menuNames.add("Toogle");
+        menuNames.add("5.Toogle");
         //6.
-        menuNames.add("TabHost");
+        menuNames.add("6.TabHost");
         //7.
-        menuNames.add("ConsLayout");
+        menuNames.add("7.ConsLayout");
         //8.
-        menuNames.add("Databinding");
+        menuNames.add("8.Databinding");
         //9.
-        menuNames.add("Listview");
+        menuNames.add("9.Listview");
         //10.
-        menuNames.add("CustomListview");
+        menuNames.add("10.CustomListview");
         //11.
-        menuNames.add("MultiDelListView");
+        menuNames.add("11.MultiDelListView");
         //12.
-        menuNames.add("RecyclerView");
+        menuNames.add("12.RecyclerView");
         //13.
-        menuNames.add("Imvoca");
+        menuNames.add("13.Imvoca");
         //14.
-        menuNames.add("Rxandroid");
+        menuNames.add("14.Rxandroid");
         //15.
-        menuNames.add("Button UI");
+        menuNames.add("15.Button UI");
         //16.
-        menuNames.add("KotlinTest");
+        menuNames.add("16.KotlinTest");
         //17.
-        menuNames.add("DataBinding");
+        menuNames.add("17.DataBinding");
         //18.
-        menuNames.add("DialogBox");
+        menuNames.add("18.DialogBox");
         //19.
-        menuNames.add("OkHttp");
+        menuNames.add("19.OkHttp");
         //20.
-        menuNames.add("Room");
+        menuNames.add("20.Room");
         //21.
-        menuNames.add("LiveDataRoom");
+        menuNames.add("21.LiveDataRoom");
         //22.
-        menuNames.add("ViewModel");
+        menuNames.add("22.ViewModel");
         //23.
-        menuNames.add("RxJava");
+        menuNames.add("23.RxJava");
         //24.
-        menuNames.add("RxBinding");
+        menuNames.add("24.RxBinding");
         //25.
-        menuNames.add("SimpleOKhttp");
+        menuNames.add("25.SimpleOKhttp");
         //26.
-        menuNames.add("JsonRetroift");
+        menuNames.add("26.JsonRetroift");
         //27.
-        menuNames.add("TTS Test");
+        menuNames.add("27.TTS Test");
         //28.
-        menuNames.add("GridView");
+        menuNames.add("28.GridView");
         //29
-        menuNames.add("RecyclerGrid");
-        menuNames.add("DataBinding");
+        menuNames.add("29.RecyclerGrid");
+        menuNames.add("30.DataBinding");
 
         ListAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.lable, menuNames);
         // 어댑터를 설정
