@@ -20,15 +20,15 @@ public class RxJavaActivity extends AppCompatActivity {
 
     String TAG = "RxJavaActivity";
 
-    Observable<String> mObservable;
-    Observer<String> mObserver;
+    Observable<String> mObservable;//흐르는 물
+    Observer<String> mObserver;//흐르는 물에서 onNext로 넘어온걸 받아온다.
     TextView tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rxjava);
 
-         tv = (TextView) findViewById(R.id.txt);
+         tv = findViewById(R.id.txt);
         mObservable = Observable.just("Hello from Rxandroid....!");
         mObserver = new Observer<String>() {
             @Override
@@ -56,6 +56,6 @@ public class RxJavaActivity extends AppCompatActivity {
         mObservable.subscribe(mObserver);
         mObservable.just("Today is Firing Friday..").subscribe(s-> Toast.makeText(this, s, Toast.LENGTH_SHORT).show());
 
-        mObservable.subscribe((s-> LogUtil.e(TAG,"새로운 데이터..............")));
+
     }
 }
