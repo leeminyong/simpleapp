@@ -13,9 +13,12 @@ class MainViewModel : ViewModel(){
 
     var counter = MutableLiveData<Int>()
 
+    init {
+        counter.value = 0
+    }
 
     fun increase() {
-        counter.value = this.counter.value!! + 1
+        counter.value = this.counter.value?.plus(1)
     }
 
 

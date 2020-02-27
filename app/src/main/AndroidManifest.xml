@@ -6,7 +6,7 @@
 
     <application
 
-        android:allowBackup="true"
+android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:requiredForAllUsers="true"
@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.DataBindingAct"></activity>
+        <activity android:name=".livedata.LiveDataActivity"></activity>
+        <activity android:name=".activity.DataBindingAct" />
         <activity android:name=".activity.TTSActivity"/>
         <activity android:name=".activity.RxBindingAct" />
         <activity android:name=".activity.RxJavaActivity" />
@@ -28,7 +29,7 @@
             android:name=".activity.ViewModelActivity"
             android:label="ViewModel" />
 
-        <activity
+<activity
             android:name=".activity.OkHttpActivity"
             android:label="OkHttp" />
         <activity
@@ -63,7 +64,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
 
-        <activity
+<activity
             android:name=".activity.BottomSheetActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
@@ -114,17 +115,15 @@
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".activity.RecycleGridAct"
-            android:screenOrientation="sensor"
             android:configChanges="orientation|keyboardHidden"
-            android:label="RecycleGridAct" />
+            android:label="RecycleGridAct"             android:screenOrientation="sensor" />
         <activity
             android:name=".activity.GridviewActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"
             android:screenOrientation="sensor"
 
-            android:configChanges="orientation|keyboardHidden"
-
-            android:windowSoftInputMode="stateHidden|adjustPan" />
+android:windowSoftInputMode="stateHidden|adjustPan" />
     </application>
 
 </manifest>
