@@ -39,6 +39,7 @@ import com.aiden.andmodule.activity.ToogleActivity;
 import com.aiden.andmodule.activity.VMLDbindActivity;
 import com.aiden.andmodule.activity.ViewModelActivity;
 import com.aiden.andmodule.activity.WebActivity;
+import com.aiden.andmodule.livedata.LiveDataActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -114,7 +115,10 @@ public class MainActivity extends AppCompatActivity {
         menuNames.add("28.GridView");
         //29
         menuNames.add("29.RecyclerGrid");
+        //30
         menuNames.add("30.DataBinding");
+        //31
+        menuNames.add("31.LiveData");
 
         ListAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.lable, menuNames);
         // 어댑터를 설정
@@ -287,6 +291,13 @@ public class MainActivity extends AppCompatActivity {
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;
+                    //LiveData + Databinding+ViewModel
+                    case 31:
+                        intent = new Intent(MainActivity.this, LiveDataActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        break;
+
 
                 }
 
