@@ -33,7 +33,7 @@ class LiveDataActivity : AppCompatActivity() {
         liveDataBing.lifecycleOwner = this
 
         liveDataBing.mliveModel = liveViewModel
-        
+
 
 
     }
