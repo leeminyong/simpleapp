@@ -31,27 +31,11 @@ class LiveDataActivity : AppCompatActivity() {
         liveViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         liveDataBing.lifecycleOwner = this
+
         liveDataBing.mliveModel = liveViewModel
+        
 
 
-        dialog_main_switch.setOnCheckedChangeListener{ _, b : Boolean ->
-            liveViewModel.isSwitch.value = b
-            LogUtil.e(TAG, "변경한 값--->$b")
-        }
-        /*
-        btn_counter.setOnClickListener{it->
-            liveViewModel.increase()
-            LogUtil.e(TAG, "증가한  값--->$it")
-        }
-
-        liveViewModel.counter.observe(this as LifecycleOwner, Observer { t ->
-            count_txt.text = Integer.toString(t)
-        })
-        */
-
-        liveViewModel.isSwitch.observe(this as LifecycleOwner, Observer { t ->
-            main_test_txt.text = t.toString()
-        })
     }
 
     fun addDisposable(disposable : Disposable?){

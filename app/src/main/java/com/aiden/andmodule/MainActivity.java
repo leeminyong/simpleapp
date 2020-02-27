@@ -16,6 +16,7 @@ import com.aiden.andmodule.activity.DBRecyclerActivity;
 import com.aiden.andmodule.activity.DataBindingAct;
 import com.aiden.andmodule.activity.DataBindingActivity;
 import com.aiden.andmodule.activity.DialogActivity;
+import com.aiden.andmodule.activity.FindViewByeAct;
 import com.aiden.andmodule.activity.GridviewActivity;
 import com.aiden.andmodule.activity.LiveDataRoomAct;
 import com.aiden.andmodule.activity.OkHttpActivity;
@@ -119,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
         menuNames.add("30.DataBinding");
         //31
         menuNames.add("31.LiveData");
+        //32
+        menuNames.add("32.KotlinGrammer");
 
         ListAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.lable, menuNames);
         // 어댑터를 설정
@@ -294,6 +297,11 @@ public class MainActivity extends AppCompatActivity {
                     //LiveData + Databinding+ViewModel
                     case 31:
                         intent = new Intent(MainActivity.this, LiveDataActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        break;
+                    case 32:
+                        intent = new Intent(MainActivity.this, FindViewByeAct.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;
