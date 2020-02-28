@@ -17,14 +17,14 @@ open class MainRecyclerAdapter: RecyclerView.Adapter<MainRecyclerAdapter.ViewHol
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemView.item_main_text.text = datas?.get(position)?.title?:"null"
         if(datas?.get(position)?.isSelect == true){
-            holder.itemView.setBackgroundColor(Color.GRAY)
+            holder.itemView.setBackgroundColor(Color.LTGRAY)
         }else{
             holder.itemView.setBackgroundColor(Color.WHITE)
         }
         holder.itemView.setOnClickListener { v ->
             datas?.get(position)?.isSelect = !(datas?.get(position)?.isSelect?:false)
             if(datas?.get(position)?.isSelect == true){
-                holder.itemView.setBackgroundColor(Color.GRAY)
+                holder.itemView.setBackgroundColor(Color.LTGRAY)
             }else{
                 holder.itemView.setBackgroundColor(Color.WHITE)
             }

@@ -41,6 +41,7 @@ import com.aiden.andmodule.activity.VMLDbindActivity;
 import com.aiden.andmodule.activity.ViewModelActivity;
 import com.aiden.andmodule.activity.WebActivity;
 import com.aiden.andmodule.livedata.LiveDataActivity;
+import com.aiden.andmodule.recyclerkotlin.RecycleKotlinAct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -122,6 +123,8 @@ public class MainActivity extends AppCompatActivity {
         menuNames.add("31.LiveData");
         //32
         menuNames.add("32.KotlinGrammer");
+        //33
+        menuNames.add("33.RecycleKotlin");
 
         ListAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.lable, menuNames);
         // 어댑터를 설정
@@ -302,6 +305,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 32:
                         intent = new Intent(MainActivity.this, FindViewByeAct.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        break;
+                     //
+                    case 33:
+                        intent = new Intent(MainActivity.this, RecycleKotlinAct.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;
