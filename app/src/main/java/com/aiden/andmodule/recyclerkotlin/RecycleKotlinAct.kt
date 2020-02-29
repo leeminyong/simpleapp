@@ -18,6 +18,9 @@ import kotlinx.android.synthetic.main.activity_recycler.*
 import org.w3c.dom.Text
 
 
+/**
+ * 2020.02.29
+ */
 class RecycleKotlinAct : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
