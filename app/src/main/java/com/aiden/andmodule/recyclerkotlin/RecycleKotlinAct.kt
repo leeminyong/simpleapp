@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.aiden.andmodule.LogUtil
 import com.aiden.andmodule.R
 import com.example.admin.kotlinlistexample.DummyData
 import com.example.admin.kotlinlistexample.MainRecyclerAdapter
@@ -18,6 +19,9 @@ import kotlinx.android.synthetic.main.activity_recycler.*
 import org.w3c.dom.Text
 
 
+/**
+ * 2020.02.29
+ */
 class RecycleKotlinAct : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +40,7 @@ class RecycleKotlinAct : AppCompatActivity() {
         recyclerview.addItemDecoration((DividerItemDecoration(this@RecycleKotlinAct,LinearLayoutManager.VERTICAL)))
         */
 
-        mainAdapter.setOnClickListener { i -> Log.e("RecycleKotlinAct","onClick = $i") }
+        mainAdapter.setOnClickListener { i -> LogUtil.e("RecycleKotlinAct","onClick = $i") }
         mainAdapter.addData(dummyData())
     }
 
