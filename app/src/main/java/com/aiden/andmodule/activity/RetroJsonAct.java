@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.aiden.andmodule.LogUtil;
 import com.aiden.andmodule.R;
 import com.aiden.andmodule.model.Api;
 import com.aiden.andmodule.model.Weath;
@@ -41,8 +42,9 @@ public class RetroJsonAct extends AppCompatActivity {
         call.enqueue(new  Callback<ArrayList<Weath>>() {
             @Override
             public void onResponse(Call<ArrayList<Weath>> call, Response<ArrayList<Weath>> response) {
-                Log.d("Retrofit", response.toString());
+                LogUtil.e("Retrofit", response.toString());
                 repo = response.body();
+                LogUtil.e("repo-->", response.body().toString());
                 if (response.body() != null) {
                     for(int i=0;i<repo.size();i++) {
                         txtResult.append("\n"+(i+1)+". 나라:"+response.body().get(i).getCountry()+"/"+

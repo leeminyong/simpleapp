@@ -22,6 +22,7 @@ import com.aiden.andmodule.activity.LiveDataRoomAct;
 import com.aiden.andmodule.activity.OkHttpActivity;
 import com.aiden.andmodule.activity.RecycleGridAct;
 import com.aiden.andmodule.activity.RetroJsonAct;
+import com.aiden.andmodule.activity.RetroMainAct;
 import com.aiden.andmodule.activity.RoomAct;
 import com.aiden.andmodule.activity.RxBindingAct;
 import com.aiden.andmodule.activity.RxJavaActivity;
@@ -125,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
         menuNames.add("32.KotlinGrammer");
         //33
         menuNames.add("33.RecycleKotlin");
+        //34.RetroMainAct
+        menuNames.add("34.Retrofit_test");
 
         ListAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.lable, menuNames);
         // 어댑터를 설정
@@ -311,6 +314,11 @@ public class MainActivity extends AppCompatActivity {
                      //
                     case 33:
                         intent = new Intent(MainActivity.this, RecycleKotlinAct.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        break;
+                    case 34:
+                        intent = new Intent(MainActivity.this, RetroMainAct.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;
