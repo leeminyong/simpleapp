@@ -18,6 +18,7 @@ import com.aiden.andmodule.activity.DataBindingActivity;
 import com.aiden.andmodule.activity.DialogActivity;
 import com.aiden.andmodule.activity.FindViewByeAct;
 import com.aiden.andmodule.activity.GridviewActivity;
+import com.aiden.andmodule.activity.KotSimRecyclerAct;
 import com.aiden.andmodule.activity.LiveDataRoomAct;
 import com.aiden.andmodule.activity.OkHttpActivity;
 import com.aiden.andmodule.activity.RecycleGridAct;
@@ -128,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
         menuNames.add("33.RecycleKotlin");
         //34.RetroMainAct
         menuNames.add("34.Retrofit_test");
+        //35.RetroMainAct
+        menuNames.add("35.Kotlin_Recyclerview");
 
         ListAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.lable, menuNames);
         // 어댑터를 설정
@@ -319,6 +322,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 34:
                         intent = new Intent(MainActivity.this, RetroMainAct.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        break;
+                     //KotSimRecyclerAct
+                    case 35:
+                        intent = new Intent(MainActivity.this, KotSimRecyclerAct.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
                         break;
