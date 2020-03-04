@@ -41,7 +41,7 @@ public class GridViewPager extends RelativeLayout {
     /**
      * 각 페이지에 표시되는 번호를 설정
      */
-    private int pageSize = 10;
+    private int pageSize = 8;
 
     /**
      * 현재 표시되는 페이지
@@ -79,7 +79,7 @@ public class GridViewPager extends RelativeLayout {
      * @param list
      * @return
      */
-    public GridViewPager init(List<Model> list) {
+    public GridViewPager init(List<Model> list,int col) {
         mData = list;
         //총 페이지 수 = 총 페이지 수 및 반올림
         pageCount = (int) Math.ceil(mData.size() * 1.0 / pageSize);
@@ -88,6 +88,7 @@ public class GridViewPager extends RelativeLayout {
         for (int i = 0; i < pageCount; i++) {
 
             GridView gridView = (GridView) inflater.inflate(R.layout.gridview, mPager, false);
+            gridView.setNumColumns(col);
             gridView.setAdapter(new GridViewAdapter(mContext, mData, i, pageSize));
             mPagerList.add(gridView);
 
@@ -136,13 +137,9 @@ public class GridViewPager extends RelativeLayout {
         mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             public void onPageSelected(int position) {
                 // 점 선택 취소
-                mLlDot.getChildAt(curIndex)
-                        .findViewById(R.id.v_dot)
-                        .setBackgroundResource(R.drawable.dot_normal);
+                mLlDot.getChildAt(curIndex).findViewById(R.id.v_dot).setBackgroundResource(R.drawable.dot_normal);
                 // 도트 선택
-                mLlDot.getChildAt(position)
-                        .findViewById(R.id.v_dot)
-                        .setBackgroundResource(R.drawable.dot_selected);
+                mLlDot.getChildAt(position).findViewById(R.id.v_dot).setBackgroundResource(R.drawable.dot_selected);
                 curIndex = position;
             }
 
@@ -155,7 +152,7 @@ public class GridViewPager extends RelativeLayout {
     }
 
     /**
-     * optional 단위 클릭 이벤트 설정
+     * optional
      *
      * @param listener
      * @return
@@ -166,7 +163,7 @@ public class GridViewPager extends RelativeLayout {
     }
 
     /**
-     * optional 设置单元长按事件
+     * optional
      *
      * @param listener
      * @return

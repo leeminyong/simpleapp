@@ -35,9 +35,11 @@ public class GridViewAdapter extends BaseAdapter {
     }
 
     /**
-     * 先判断数据集的大小是否足够显示满本页？mData.size() > (curIndex+1)*pageSize,
-     * 如果够，则直接返回每一页显示的最大条目个数pageSize,
-     * 如果不够，则有几项返回几,(mData.size() - curIndex * pageSize);(也就是最后一页的时候就显示剩余item)
+     *
+     *  먼저 데이터 세트의 크기가 전체 페이지를 표시하기에 충분한 지 판별하십시오.？mData.size() > (curIndex+1)*pageSize,
+     *   충분하면 각 페이지에 표시된 최대 항목 수를 직접 반환하십시오.pageSize,
+     *  충분하지 않은 경우 여러 품목을 반품하고,(mData.size() - curIndex * pageSize);(즉, 나머지 항목이 마지막 페이지에 표시됩니다.)
+     *
      */
     @Override
     public int getCount() {
