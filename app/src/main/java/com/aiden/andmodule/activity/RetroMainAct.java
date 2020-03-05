@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.aiden.andmodule.Net.GetRetrofit;
+
 import com.aiden.andmodule.Net.NetRetrofit;
 import com.aiden.andmodule.R;
 import com.google.gson.JsonObject;
@@ -64,7 +64,7 @@ public class RetroMainAct extends AppCompatActivity {
     }
 
     public void onGet(View view) {
-            Call<ArrayList<JsonObject>> res = GetRetrofit.getInstance().getService().get_data();
+            Call<ArrayList<JsonObject>> res = NetRetrofit.getInstance().getService().get_data();
             res.enqueue(new Callback<ArrayList<JsonObject>>() {
                 @Override
                 public void onResponse(Call<ArrayList<JsonObject>> call, Response<ArrayList<JsonObject>> response) {

@@ -21,13 +21,7 @@ public class NetRetrofit {
             .build();
 
     RetrofitService service = retrofit.create(RetrofitService.class);
-
-
-
-
     public RetrofitService getService() {
-
-
         return service;
     }
 }

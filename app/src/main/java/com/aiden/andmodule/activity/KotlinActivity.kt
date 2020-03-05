@@ -3,11 +3,13 @@ package com.aiden.andmodule.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.aiden.andmodule.LogUtil
 import com.aiden.andmodule.R
 import com.jakewharton.rxbinding2.view.clicks
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_kotlin.*
+import org.jetbrains.anko.startActivity
 
 class KotlinActivity : AppCompatActivity() {
     val TAG = "KotlinActivity"
@@ -83,6 +85,11 @@ class KotlinActivity : AppCompatActivity() {
         constructor(age:Int){
             this.age = age
         }
+    }
+
+    fun onIntent(view: View) {
+        startActivity<RxBindingAct>("name" to "aiden" , "height" to 70)
+
     }
 
 }

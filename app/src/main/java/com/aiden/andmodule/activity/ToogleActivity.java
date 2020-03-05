@@ -36,6 +36,7 @@ public class ToogleActivity extends AppCompatActivity {
 
                 if(toogle.isChecked()){
 
+
                     LogUtil.e("ToogleActivity","토클 버튼 상태 : 켜짐");
                 }
                 else{
@@ -73,5 +74,9 @@ public class ToogleActivity extends AppCompatActivity {
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onAnko(View view) {
+
     }
 }

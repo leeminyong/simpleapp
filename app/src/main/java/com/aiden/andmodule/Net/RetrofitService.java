@@ -19,10 +19,8 @@ public interface RetrofitService {
     Call<ArrayList<JsonObject>> getListRepos(@Path("user") String id);
 
 
-    @GET("junsuk5/6b293ac781b038366419ac6e4027abb7/raw/b30deab47a9d2fd04247d9d912df3a9a4f7be8a9/weather.json")
-    Call<ArrayList<JsonObject>> get_data();
 
-    @GET
-    public Call<ResponseBody> profilePicture(@Url String url);
+    @GET("https://gist.githubusercontent.com/junsuk5/6b293ac781b038366419ac6e4027abb7/raw/b30deab47a9d2fd04247d9d912df3a9a4f7be8a9/weather.json")
+    Call<ArrayList<JsonObject>> get_data();
 
 }

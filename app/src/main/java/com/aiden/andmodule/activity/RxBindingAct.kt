@@ -17,6 +17,11 @@ class RxBindingAct : AppCompatActivity(), LifecycleOwner {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rxbinding)
 
+        val name = intent.getStringExtra("name")
+        val height = intent.getIntExtra("height",0)
+
+        LogUtil.e("RxBinding","name-->$name, height->$height")
+
 
         button.clicks().subscribe{
             drawer_layout.showSnackBar("Hello word....", Snackbar.LENGTH_SHORT)
