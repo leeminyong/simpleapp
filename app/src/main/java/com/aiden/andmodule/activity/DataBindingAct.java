@@ -13,7 +13,7 @@ import com.aiden.andmodule.databinding.Main;
 
 
 //2020.02.17 databind commit 
-public class DataBindingAct extends AppCompatActivity {
+public class DataBindingAct extends BaseActivity {
 
     Main binding;
 

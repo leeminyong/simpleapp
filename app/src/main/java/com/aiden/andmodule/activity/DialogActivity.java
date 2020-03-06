@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.aiden.andmodule.R;
 
-public class DialogActivity extends AppCompatActivity {
+public class DialogActivity extends BaseActivity {
 
 
     private DialogBox dialog;

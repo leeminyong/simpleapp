@@ -14,7 +14,7 @@ import com.aiden.andmodule.model.Weather;
 
 import java.util.ArrayList;
 
-public class CustomListviewActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class CustomListviewActivity extends BaseActivity implements AdapterView.OnItemClickListener {
 
     MyFirstAdapter adapter;
     ListView listView;

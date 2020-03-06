@@ -17,7 +17,7 @@ import com.example.admin.kotlinlistexample.MainRecyclerAdapter
 /**
  * 2020.02.29
  */
-class RecycleKotlinAct : BaseActivity() {
+class RecycleKotlinAct : BaseKtActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)

@@ -10,7 +10,7 @@ import com.aiden.andmodule.R;
 import com.aiden.andmodule.databinding.ActivityVmldbindBinding;
 import com.aiden.andmodule.model.CounterViewModel;
 
-public class VMLDbindActivity extends AppCompatActivity {
+public class VMLDbindActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

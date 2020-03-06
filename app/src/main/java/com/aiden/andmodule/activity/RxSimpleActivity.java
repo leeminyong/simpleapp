@@ -13,7 +13,7 @@ import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
-public class RxSimpleActivity extends AppCompatActivity {
+public class RxSimpleActivity extends BaseActivity {
 
     private Observable<String> mObservable;
     private Observer<String> mOnserver;

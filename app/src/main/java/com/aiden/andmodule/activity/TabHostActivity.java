@@ -17,7 +17,7 @@ import android.widget.Toast;
 import com.aiden.andmodule.LogUtil;
 import com.aiden.andmodule.R;
 
-public class TabHostActivity extends AppCompatActivity  {
+public class TabHostActivity extends BaseActivity  {
 
 
     private Button button;

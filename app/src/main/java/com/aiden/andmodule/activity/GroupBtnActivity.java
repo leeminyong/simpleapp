@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.aiden.andmodule.R;
 
-public class GroupBtnActivity extends AppCompatActivity {
+public class GroupBtnActivity extends BaseActivity {
     private RadioButton r_btn1, r_btn2;
     private RadioGroup radioGroup;
 

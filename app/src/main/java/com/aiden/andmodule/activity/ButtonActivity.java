@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.aiden.andmodule.R;
 
-public class ButtonActivity extends AppCompatActivity {
+public class ButtonActivity extends BaseActivity {
 
 
     boolean FONT_1,FONT_2,FONT_3,FONT_4;

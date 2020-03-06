@@ -41,7 +41,7 @@ import com.aiden.andmodule.activity.ToogleActivity;
 import com.aiden.andmodule.activity.VMLDbindActivity;
 import com.aiden.andmodule.activity.ViewModelActivity;
 import com.aiden.andmodule.activity.WebActivity;
-import com.aiden.andmodule.livedata.LiveDataActivity;
+import com.aiden.andmodule.activity.LiveDataActivity;
 import com.aiden.andmodule.activity.RecycleKotlinAct;
 
 import java.util.ArrayList;

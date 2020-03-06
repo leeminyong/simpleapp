@@ -1,4 +1,4 @@
-package com.aiden.andmodule.kotlin
+package com.aiden.andmodule.activity
 
 import android.graphics.Color
 import android.os.Bundle

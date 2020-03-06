@@ -19,7 +19,7 @@ import com.aiden.andmodule.adapter.MyAdapter;
 
 
 
-public class RecycleGridAct extends AppCompatActivity implements  MyAdapter.OnListItemSelectedInterface{
+public class RecycleGridAct extends BaseActivity implements  MyAdapter.OnListItemSelectedInterface{
 
     String TAG = "RecycleGridAct";
     RecyclerView recyclerView;

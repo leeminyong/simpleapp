@@ -8,7 +8,7 @@ import android.os.Bundle;
 import com.aiden.andmodule.R;
 import com.aiden.andmodule.databinding.ActivityBindingBinding;
 
-public class DataBindingActivity extends AppCompatActivity {
+public class DataBindingActivity extends BaseActivity {
     ActivityBindingBinding binding;
     public String txtString = "Wow DataBinding~~!!";
 

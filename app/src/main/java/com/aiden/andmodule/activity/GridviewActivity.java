@@ -19,7 +19,7 @@ import com.aiden.andmodule.widget.Model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GridviewActivity extends AppCompatActivity {
+public class GridviewActivity extends BaseActivity {
 
     String TAG = "GridviewActivity";
     int spancount=6;

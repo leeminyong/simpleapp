@@ -32,7 +32,7 @@ import com.aiden.andmodule.R;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class WebActivity extends AppCompatActivity {
+public class WebActivity extends BaseActivity {
     String TAG = "WebActivity";
     private WebView webView;
     private String URL = "https://m.edu2080.co.kr/review?isapp=y";
@@ -78,20 +78,7 @@ public class WebActivity extends AppCompatActivity {
         swipe.setRefreshing(true);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.code_list, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_setting) {
-            LogUtil.e(TAG, "show source");
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(source_url)));
-        }
-        return super.onOptionsItemSelected(item);
-    }
     @Override
     protected void onPause() {
         super.onPause();

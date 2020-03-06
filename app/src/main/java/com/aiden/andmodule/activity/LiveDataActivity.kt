@@ -1,18 +1,15 @@
-package com.aiden.andmodule.livedata
+package com.aiden.andmodule.activity
 
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.aiden.andmodule.LogUtil
 import com.aiden.andmodule.R
 import com.aiden.andmodule.databinding.ActivityliveBinding
+import com.aiden.andmodule.livedata.MainViewModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
-import kotlinx.android.synthetic.main.activitylive.*
 
 //0227
 class LiveDataActivity : AppCompatActivity() {

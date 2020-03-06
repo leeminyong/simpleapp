@@ -31,7 +31,7 @@ import java.util.ArrayList;
 /**
  * MY 단어 메인
  */
-public class DBRecyclerActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, MyEditListAdapter.OnListItemSelectedInterface {
+public class DBRecyclerActivity extends BaseActivity implements AdapterView.OnItemClickListener, MyEditListAdapter.OnListItemSelectedInterface {
     String TAG = getClass().getSimpleName();
     final int ADD_MODE = 100;
 

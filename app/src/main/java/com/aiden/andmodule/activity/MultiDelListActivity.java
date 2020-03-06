@@ -16,7 +16,7 @@ import com.aiden.andmodule.model.WorldPopulation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MultiDelListActivity extends AppCompatActivity {
+public class MultiDelListActivity extends BaseActivity {
 
     // Declare Variables
     ListView list;

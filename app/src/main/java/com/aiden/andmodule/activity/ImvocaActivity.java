@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.aiden.andmodule.LogUtil;
 import com.aiden.andmodule.R;
 
-public class ImvocaActivity extends AppCompatActivity {
+public class ImvocaActivity extends BaseActivity {
 
     String TAG = "ImvocaActivity";
 

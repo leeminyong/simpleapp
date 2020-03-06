@@ -12,7 +12,7 @@ import com.aiden.andmodule.db.AppDatabase;
 import com.aiden.andmodule.db.LiveTodo;
 import com.aiden.andmodule.db.Todo;
 
-public class RoomAct extends AppCompatActivity {
+public class RoomAct extends BaseActivity {
 
     private EditText mEdit;
     private TextView txtResult;

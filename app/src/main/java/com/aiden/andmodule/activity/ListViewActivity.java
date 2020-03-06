@@ -15,7 +15,7 @@ import com.aiden.andmodule.R;
 import com.aiden.andmodule.adapter.ListViewAdapter;
 import com.aiden.andmodule.model.ListViewItem;
 
-public class ListViewActivity extends AppCompatActivity {
+public class ListViewActivity extends BaseActivity {
 
     String TAG = "ListViewActivity";
 

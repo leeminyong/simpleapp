@@ -13,7 +13,7 @@ import android.widget.Button;
 import com.aiden.andmodule.LogUtil;
 import com.aiden.andmodule.R;
 
-public class ToogleActivity extends AppCompatActivity {
+public class ToogleActivity extends BaseActivity {
     AppCompatToggleButton toogle;
     AppCompatToggleButton toggleButton;
     @Override

@@ -33,7 +33,7 @@ import okhttp3.Response;
 
 import static io.reactivex.Observable.fromCallable;
 
-public class OkHttpActivity extends AppCompatActivity {
+public class OkHttpActivity extends BaseActivity {
 
     static String TAG = "OkHttpActivity";
 

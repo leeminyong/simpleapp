@@ -17,7 +17,7 @@ import com.aiden.andmodule.adapter.StdRecyclerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerViewActivity extends AppCompatActivity implements StdRecyclerAdapter.OnListItemLongSelectedInterface
+public class RecyclerViewActivity extends BaseActivity implements StdRecyclerAdapter.OnListItemLongSelectedInterface
         , StdRecyclerAdapter.OnListItemSelectedInterface{
 
     String TAG = "RecyclerViewActivity";

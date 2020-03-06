@@ -26,7 +26,7 @@ import java.util.ArrayList;
  */
 
 
-public class MyEditPopUp extends AppCompatActivity {
+public class MyEditPopUp extends BaseActivity {
 
     String TAG = "MyEditPopUp";
     private EditText ed_eng;

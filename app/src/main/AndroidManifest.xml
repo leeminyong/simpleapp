@@ -22,7 +22,7 @@
             android:name=".activity.RetroMainAct"
             android:label="RetroMainAct" />
 
-        <activity android:name=".livedata.LiveDataActivity" />
+        <activity android:name=".activity.LiveDataActivity" />
         <activity android:name=".activity.DataBindingAct" />
         <activity android:name=".activity.TTSActivity" />
         <activity android:name=".activity.RxBindingAct" />

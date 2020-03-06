@@ -15,7 +15,7 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 
-public class SharedDataActivity extends AppCompatActivity {
+public class SharedDataActivity extends BaseActivity {
 
     String TAG = "SharedDataActivity";
 

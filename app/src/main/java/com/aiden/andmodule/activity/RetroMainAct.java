@@ -41,19 +41,7 @@ public class RetroMainAct extends BaseActivity {
         textView = findViewById(R.id.textView);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.code_list, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_setting) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getSourceUrl()+getClass().getSimpleName()+".java")));
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     public void onSearch(View view) {
         String id = editText.getText().toString();

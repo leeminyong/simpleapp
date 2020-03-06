@@ -12,7 +12,7 @@ import com.aiden.andmodule.R;
 
 import java.util.Locale;
 
-public class TTSActivity extends AppCompatActivity {
+public class TTSActivity extends BaseActivity {
     private TextToSpeech tts;              // TTS 변수 선언
     private EditText editText;
     private Button button01, button02, button03, button04, button05;

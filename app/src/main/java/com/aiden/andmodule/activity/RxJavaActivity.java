@@ -16,7 +16,7 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.operators.parallel.ParallelDoOnNextTry;
 
-public class RxJavaActivity extends AppCompatActivity {
+public class RxJavaActivity extends BaseActivity {
 
     String TAG = "RxJavaActivity";
 

@@ -11,7 +11,7 @@ import com.aiden.andmodule.R;
 import com.aiden.andmodule.db.LiveTodo;
 import com.aiden.andmodule.model.MainViewModel;
 
-public class ViewModelActivity extends AppCompatActivity {
+public class ViewModelActivity extends BaseActivity {
 
     private EditText mEdit;
     private TextView txtResult;

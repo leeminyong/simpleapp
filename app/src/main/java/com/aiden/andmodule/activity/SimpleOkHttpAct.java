@@ -22,7 +22,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class SimpleOkHttpAct extends AppCompatActivity {
+public class SimpleOkHttpAct extends BaseActivity {
 
     static  String TAG = "OkHttpActivity";
 
