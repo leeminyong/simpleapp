@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".recyclerkotlin.RecycleKotlinAct"
+            android:name=".activity.RecycleKotlinAct"
             android:label="RecycleKotlin" />
 
         <activity android:name=".activity.FindViewByeAct" />

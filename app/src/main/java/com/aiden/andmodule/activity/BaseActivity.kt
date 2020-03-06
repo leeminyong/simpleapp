@@ -9,14 +9,9 @@ import io.reactivex.disposables.CompositeDisposable
 /**
  * 2020.01.03... start
  */
-open class BaseActivity : AppCompatActivity(),LifecycleOwner{
-    protected val disposables by lazy { CompositeDisposable() }
-    protected val analytics by lazy { FirebaseAnalytics.getInstance(this) }
-    private val registry : LifecycleRegistry = LifecycleRegistry(this)
+open class BaseActivity : AppCompatActivity(){
 
-    override fun getLifecycle(): LifecycleRegistry = registry
-    override fun onDestroy() {
-        disposables.clear()
-        super.onDestroy()
-    }
+    public var sourceUrl = "https://github.com/leeminyong/simpleapp/blob/master/app/src/main/java/com/aiden/andmodule/activity/"
+
+
 }

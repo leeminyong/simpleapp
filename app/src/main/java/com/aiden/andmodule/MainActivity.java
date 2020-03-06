@@ -42,7 +42,7 @@ import com.aiden.andmodule.activity.VMLDbindActivity;
 import com.aiden.andmodule.activity.ViewModelActivity;
 import com.aiden.andmodule.activity.WebActivity;
 import com.aiden.andmodule.livedata.LiveDataActivity;
-import com.aiden.andmodule.recyclerkotlin.RecycleKotlinAct;
+import com.aiden.andmodule.activity.RecycleKotlinAct;
 
 import java.util.ArrayList;
 import java.util.List;

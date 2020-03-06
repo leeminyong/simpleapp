@@ -1,11 +1,10 @@
-package com.aiden.andmodule.recyclerkotlin
+package com.aiden.andmodule.activity
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-
-import android.util.Log
-import android.widget.Adapter
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,16 +12,12 @@ import com.aiden.andmodule.LogUtil
 import com.aiden.andmodule.R
 import com.example.admin.kotlinlistexample.DummyData
 import com.example.admin.kotlinlistexample.MainRecyclerAdapter
-import kotlinx.android.synthetic.main.activity_main.*
-
-import kotlinx.android.synthetic.main.activity_recycler.*
-import org.w3c.dom.Text
 
 
 /**
  * 2020.02.29
  */
-class RecycleKotlinAct : AppCompatActivity() {
+class RecycleKotlinAct : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
@@ -42,6 +37,18 @@ class RecycleKotlinAct : AppCompatActivity() {
 
         mainAdapter.setOnClickListener { i -> LogUtil.e("RecycleKotlinAct","onClick = $i") }
         mainAdapter.addData(dummyData())
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.code_list, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_setting) {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(sourceUrl + javaClass.simpleName + ".kt")))
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     fun dummyData(): ArrayList<DummyData>{

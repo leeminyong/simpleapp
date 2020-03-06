@@ -1,14 +1,16 @@
 package com.aiden.andmodule.activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.aiden.andmodule.Net.NetRetrofit;
@@ -25,9 +27,10 @@ import retrofit2.Response;
  * Created by NewLand on 2017. 11. 7..
  */
 
-public class RetroMainAct extends AppCompatActivity {
+public class RetroMainAct extends BaseActivity {
     EditText editText;
     TextView textView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,20 @@ public class RetroMainAct extends AppCompatActivity {
 
         editText = findViewById(R.id.editText);
         textView = findViewById(R.id.textView);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.code_list, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_setting) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getSourceUrl()+getClass().getSimpleName()+".java")));
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void onSearch(View view) {
